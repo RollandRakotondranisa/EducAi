@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* =========================================================
+   EDUAI — DESIGN TOKENS
+   Palette : bleu nuit, blanc, rouge (erreur), vert (succès)
+   ========================================================= */
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+
+  --primary: #0b3c5d;
+  --primary-foreground: #ffffff;
+  --primary-soft: #e8f1f7;
+  --primary-deep: #072a43;
+
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+
+  --border: #e2e8f0;
+
+  --success: #2e7d32;
+  --success-soft: #e9f3ea;
+  --error: #d32f2f;
+  --error-soft: #fdecec;
+}
+
+/* Expose les tokens à Tailwind : bg-*, text-*, border-* (+ opacités) */
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-deep: var(--primary-deep);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-error: var(--error);
+  --color-error-soft: var(--error-soft);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: clip;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* =========================================================
+   KEYFRAMES
+   ========================================================= */
+
+@keyframes eduai-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+@keyframes eduai-pop {
+  from { opacity: 0; transform: translateY(8px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes eduai-scan {
+  0%, 100% { top: 8%; }
+  50% { top: 88%; }
+}
+
+@keyframes eduai-marquee {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes eduai-pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 40%, transparent); }
+  100% { box-shadow: 0 0 0 12px transparent; }
+}
+
+/* =========================================================
+   COMPONENTS EDUAI
+   ========================================================= */
+
+@layer components {
+
+  .card-surface {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    box-shadow:
+      0 1px 2px rgb(15 23 42 / 0.04),
+      0 4px 12px rgb(15 23 42 / 0.04);
+  }
+
+  .glass-panel {
+    background-color: rgb(255 255 255 / 0.75);
+    border: 1px solid rgb(226 232 240 / 0.8);
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 30px rgb(15 23 42 / 0.06);
+    backdrop-filter: blur(12px);
+  }
+
+  .input-field {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border);
+    background: var(--background);
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    color: var(--foreground);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .input-field::placeholder {
+    color: var(--muted-foreground);
+  }
+  .input-field:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 18%, transparent);
+  }
+  .input-field[aria-invalid="true"] {
+    border-color: var(--error);
+  }
+  .input-field[aria-invalid="true"]:focus {
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--error) 18%, transparent);
+  }
+
+  .skip-link {
+    position: fixed;
+    top: -100%;
+    left: 1rem;
+    z-index: 100;
+    border-radius: 0.75rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  /* Décors */
+  .bg-hero {
+    background:
+      radial-gradient(52% 42% at 72% -8%, color-mix(in oklab, var(--primary-soft) 85%, transparent), transparent 72%),
+      radial-gradient(38% 32% at 8% 12%, color-mix(in oklab, var(--primary) 7%, transparent), transparent 70%),
+      var(--background);
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--primary) 6%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--primary) 6%, transparent) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(72% 62% at 50% 16%, #000 32%, transparent 78%);
+    -webkit-mask-image: radial-gradient(72% 62% at 50% 16%, #000 32%, transparent 78%);
+  }
+
+  .dots-dark {
+    background-image: radial-gradient(rgb(255 255 255 / 0.13) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .highlight {
+    padding-inline: 0.08em;
+    background-image: linear-gradient(
+      to top,
+      color-mix(in oklab, var(--primary-soft) 92%, transparent) 0 36%,
+      transparent 36%
+    );
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  /* Animations composant */
+  .scan-line {
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    top: 8%;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--primary);
+    box-shadow: 0 0 14px color-mix(in oklab, var(--primary) 55%, transparent);
+    animation: eduai-scan 3.4s ease-in-out infinite;
+  }
+
+  .step-active {
+    animation: eduai-pulse 1.6s ease-out infinite;
+  }
+
+  .marquee-track {
+    animation: eduai-marquee 34s linear infinite;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .animate-float {
+    animation: eduai-float 5.5s ease-in-out infinite;
+  }
+  .animate-float-slow {
+    animation: eduai-float 7.5s ease-in-out 0.8s infinite;
+  }
+  .animate-pop {
+    animation: eduai-pop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Révélation au scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Éléments déclenchés par le parent .is-visible */
+  .chip-pop {
+    opacity: 0;
+  }
+  .is-visible .chip-pop {
+    animation: eduai-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0ms) both;
+  }
+
+  .bar {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--d, 0ms);
+  }
+  .is-visible .bar {
+    transform: scaleY(1);
+  }
+
+  .timeline-line {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.9s ease;
+    transition-delay: var(--d, 0ms);
+  }
+  .is-visible .timeline-line {
+    transform: scaleX(1);
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITÉ — MOUVEMENT RÉDUIT
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .chip-pop {
+    opacity: 1;
+  }
+  .bar,
+  .timeline-line {
+    transform: none;
+  }
+}
+@layer components {
+  /* Animation d'entrée pour les items du hero latéral */
+  .hero-item {
+    opacity: 0;
+    transform: translateX(-14px);
+    animation: eduai-hero-in 0.6s cubic-bezier(0.22, 1, 0.36, 1)
+      var(--d, 0ms) forwards;
+  }
+
+  /* Input avec zone dédiée à l'icône (bouton œil du mot de passe) */
+  .input-field.pr-10 {
+    padding-right: 2.75rem;
+  }
+}
+
+@keyframes eduai-hero-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@layer components {
+  /* Input avec icône à gauche (email) */
+  .input-field.pl-10 {
+    padding-left: 2.5rem;
+  }
+  /* Input avec icône à droite (œil mot de passe) */
+  .input-field.pr-10 {
+    padding-right: 2.75rem;
+  }
+  /* Si les deux : pl-10 pr-10 (cas mot de passe avec icône gauche ET droite) */
+  .input-field.pl-10.pr-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.75rem;
+  }
+}
