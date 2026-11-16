@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.1">
+  <uml:Model xmi:id="EduAI_Model" name="Mod?le du domaine EducAI">
+    <packagedElement xmi:type="uml:Class" xmi:id="C_Organization" name="?tablissement">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Organization_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Organization_2" name="name"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Organization_3" name="normalizedName"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Organization_4" name="isLegacy"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_01_1" name="users" type="C_User" association="A_01" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_02_1" name="courses" type="C_Course" association="A_02" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_03_1" name="announcements" type="C_Announcement" association="A_03" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_04_1" name="userRequests" type="C_UserRequest" association="A_04" lower="0" upper="*"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_User" name="Utilisateur">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_2" name="firstName"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_3" name="lastName"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_4" name="email"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_5" name="role"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_6" name="isActive"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_7" name="isSuperAdmin"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_01_2" name="organization" type="C_Organization" association="A_01" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_05_1" name="requests" type="C_UserRequest" association="A_05" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_06_1" name="sessions" type="C_Session" association="A_06" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_07_1" name="taughtCourses" type="C_Course" association="A_07" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_08_1" name="enrollments" type="C_CourseStudent" association="A_08" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_09_1" name="students" type="C_AcademicClass" association="A_09" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_15_1" name="teachingAssignments" type="C_AcademicClassTeacher" association="A_15" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_18_1" name="uploadedDocuments" type="C_Document" association="A_18" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_20_1" name="documentActions" type="C_DocumentHistory" association="A_20" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_22_1" name="createdExams" type="C_Exam" association="A_22" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_26_1" name="examAttempts" type="C_ExamAttempt" association="A_26" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_30_1" name="examResults" type="C_ExamResult" association="A_30" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_32_1" name="sentMessages" type="C_Message" association="A_32" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_33_1" name="receivedMessages" type="C_Message" association="A_33" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_35_1" name="createdAnnouncements" type="C_Announcement" association="A_35" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_37_1" name="auditActions" type="C_Audit" association="A_37" lower="0" upper="*"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_UserRequest" name="DemandeCompte">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_UserRequest_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_UserRequest_2" name="requestedRole"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_UserRequest_3" name="status"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_UserRequest_4" name="createdAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_UserRequest_5" name="approvedAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_04_2" name="organization" type="C_Organization" association="A_04" lower="0" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_05_2" name="user" type="C_User" association="A_05" lower="1" upper="1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_Session" name="Session">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Session_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Session_2" name="expiresAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Session_3" name="revokedAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_06_2" name="user" type="C_User" association="A_06" lower="1" upper="1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_AcademicYear" name="AnneeAcademique">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicYear_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicYear_2" name="name"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicYear_3" name="startsAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicYear_4" name="endsAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicYear_5" name="isActive"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_10_1" name="classes" type="C_AcademicClass" association="A_10" lower="0" upper="*"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_AcademicProgram" name="Programme">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicProgram_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicProgram_2" name="name"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicProgram_3" name="isActive"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_11_1" name="classes" type="C_AcademicClass" association="A_11" lower="0" upper="*"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_AcademicLevel" name="Niveau">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicLevel_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicLevel_2" name="name"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicLevel_3" name="position"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicLevel_4" name="isActive"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_12_1" name="classes" type="C_AcademicClass" association="A_12" lower="0" upper="*"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_AcademicClass" name="ClasseAcademique">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicClass_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicClass_2" name="name"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_09_2" name="studentClass" type="C_User" association="A_09" lower="0" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_10_2" name="academicYear" type="C_AcademicYear" association="A_10" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_11_2" name="program" type="C_AcademicProgram" association="A_11" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_12_2" name="level" type="C_AcademicLevel" association="A_12" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_13_1" name="targetCourses" type="C_Course" association="A_13" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_14_1" name="teacherAssignments" type="C_AcademicClassTeacher" association="A_14" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_23_1" name="targetExams" type="C_Exam" association="A_23" lower="0" upper="*"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_AcademicClassTeacher" name="AffectationEnseignantClasse">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicClassTeacher_1" name="academicClassId"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicClassTeacher_2" name="teacherId"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_14_2" name="academicClass" type="C_AcademicClass" association="A_14" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_15_2" name="teacher" type="C_User" association="A_15" lower="1" upper="1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_Course" name="Cours">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Course_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Course_2" name="name"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Course_3" name="code"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Course_4" name="description"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_02_2" name="organization" type="C_Organization" association="A_02" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_07_2" name="teacher" type="C_User" association="A_07" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_13_2" name="targetClass" type="C_AcademicClass" association="A_13" lower="0" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_16_1" name="enrollments" type="C_CourseStudent" association="A_16" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_17_1" name="documents" type="C_Document" association="A_17" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_21_1" name="exams" type="C_Exam" association="A_21" lower="0" upper="*"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_CourseStudent" name="InscriptionCours">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_CourseStudent_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_CourseStudent_2" name="createdAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_08_2" name="student" type="C_User" association="A_08" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_16_2" name="course" type="C_Course" association="A_16" lower="1" upper="1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_Document" name="DocumentPedagogique">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Document_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Document_2" name="originalName"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Document_3" name="mimeType"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Document_4" name="fileSize"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Document_5" name="status"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_17_2" name="course" type="C_Course" association="A_17" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_18_2" name="uploader" type="C_User" association="A_18" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_19_1" name="history" type="C_DocumentHistory" association="A_19" lower="0" upper="*"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_DocumentHistory" name="HistoriqueDocument">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_DocumentHistory_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_DocumentHistory_2" name="action"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_DocumentHistory_3" name="details"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_DocumentHistory_4" name="createdAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_19_2" name="document" type="C_Document" association="A_19" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_20_2" name="user" type="C_User" association="A_20" lower="1" upper="1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_Exam" name="Examen">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Exam_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Exam_2" name="title"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Exam_3" name="duration"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Exam_4" name="startDate"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Exam_5" name="endDate"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Exam_6" name="status"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_21_2" name="course" type="C_Course" association="A_21" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_22_2" name="teacher" type="C_User" association="A_22" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_23_2" name="targetClass" type="C_AcademicClass" association="A_23" lower="0" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_24_1" name="questions" type="C_ExamQuestion" association="A_24" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_25_1" name="attempts" type="C_ExamAttempt" association="A_25" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_29_1" name="results" type="C_ExamResult" association="A_29" lower="0" upper="*"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_ExamQuestion" name="QuestionExamen">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamQuestion_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamQuestion_2" name="question"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamQuestion_3" name="type"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamQuestion_4" name="points"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamQuestion_5" name="position"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_24_2" name="exam" type="C_Exam" association="A_24" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_28_1" name="answers" type="C_ExamAnswer" association="A_28" lower="0" upper="*"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_ExamAttempt" name="TentativeExamen">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAttempt_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAttempt_2" name="startedAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAttempt_3" name="submittedAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAttempt_4" name="expiresAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAttempt_5" name="status"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAttempt_6" name="score"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_25_2" name="exam" type="C_Exam" association="A_25" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_26_2" name="student" type="C_User" association="A_26" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_27_1" name="answers" type="C_ExamAnswer" association="A_27" lower="0" upper="*"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_31_1" name="result" type="C_ExamResult" association="A_31" lower="0" upper="1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_ExamAnswer" name="ReponseExamen">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAnswer_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAnswer_2" name="selectedOption"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAnswer_3" name="answerText"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAnswer_4" name="pointsObtained"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAnswer_5" name="isCorrected"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAnswer_6" name="feedback"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_27_2" name="attempt" type="C_ExamAttempt" association="A_27" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_28_2" name="question" type="C_ExamQuestion" association="A_28" lower="1" upper="1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_ExamResult" name="ResultatExamen">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamResult_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamResult_2" name="status"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamResult_3" name="score"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamResult_4" name="totalPoints"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamResult_5" name="percentage"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamResult_6" name="submittedAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_29_2" name="exam" type="C_Exam" association="A_29" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_30_2" name="student" type="C_User" association="A_30" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_31_2" name="attempt" type="C_ExamAttempt" association="A_31" lower="0" upper="1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_Message" name="Message">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Message_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Message_2" name="title"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Message_3" name="content"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Message_4" name="isRead"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Message_5" name="readAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Message_6" name="createdAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_32_2" name="sender" type="C_User" association="A_32" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_33_2" name="recipient" type="C_User" association="A_33" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_34_1" name="attachments" type="C_MessageAttachment" association="A_34" lower="0" upper="*"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_MessageAttachment" name="PieceJointeMessage">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_MessageAttachment_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_MessageAttachment_2" name="originalName"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_MessageAttachment_3" name="mimeType"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_MessageAttachment_4" name="fileSize"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_MessageAttachment_5" name="kind"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_34_2" name="message" type="C_Message" association="A_34" lower="1" upper="1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_Announcement" name="Annonce">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Announcement_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Announcement_2" name="title"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Announcement_3" name="content"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Announcement_4" name="targetRole"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Announcement_5" name="publishedAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Announcement_6" name="expiresAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_03_2" name="organization" type="C_Organization" association="A_03" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_35_2" name="author" type="C_User" association="A_35" lower="1" upper="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_36_1" name="attachments" type="C_AnnouncementAttachment" association="A_36" lower="0" upper="*"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_AnnouncementAttachment" name="PieceJointeAnnonce">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AnnouncementAttachment_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AnnouncementAttachment_2" name="originalName"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AnnouncementAttachment_3" name="mimeType"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AnnouncementAttachment_4" name="fileSize"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AnnouncementAttachment_5" name="kind"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_36_2" name="announcement" type="C_Announcement" association="A_36" lower="1" upper="1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="C_Audit" name="JournalAudit">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Audit_1" name="id"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Audit_2" name="action"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Audit_3" name="description"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Audit_4" name="status"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Audit_5" name="createdAt"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="E_37_2" name="actor" type="C_User" association="A_37" lower="1" upper="1"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_01" name="Organization_User" memberEnd="E_01_1 E_01_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_02" name="Organization_Course" memberEnd="E_02_1 E_02_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_03" name="Organization_Announcement" memberEnd="E_03_1 E_03_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_04" name="Organization_UserRequest" memberEnd="E_04_1 E_04_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_05" name="User_UserRequest" memberEnd="E_05_1 E_05_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_06" name="User_Session" memberEnd="E_06_1 E_06_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_07" name="User_TaughtCourse" memberEnd="E_07_1 E_07_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_08" name="User_Enrollment" memberEnd="E_08_1 E_08_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_09" name="User_StudentClass" memberEnd="E_09_1 E_09_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_10" name="AcademicYear_Class" memberEnd="E_10_1 E_10_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_11" name="Program_Class" memberEnd="E_11_1 E_11_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_12" name="Level_Class" memberEnd="E_12_1 E_12_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_13" name="Class_Course" memberEnd="E_13_1 E_13_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_14" name="Class_TeacherAssignment" memberEnd="E_14_1 E_14_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_15" name="User_TeacherAssignment" memberEnd="E_15_1 E_15_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_16" name="Course_Enrollment" memberEnd="E_16_1 E_16_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_17" name="Course_Document" memberEnd="E_17_1 E_17_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_18" name="User_UploadedDocument" memberEnd="E_18_1 E_18_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_19" name="Document_History" memberEnd="E_19_1 E_19_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_20" name="User_DocumentHistory" memberEnd="E_20_1 E_20_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_21" name="Course_Exam" memberEnd="E_21_1 E_21_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_22" name="User_CreatedExam" memberEnd="E_22_1 E_22_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_23" name="Class_Exam" memberEnd="E_23_1 E_23_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_24" name="Exam_Question" memberEnd="E_24_1 E_24_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_25" name="Exam_Attempt" memberEnd="E_25_1 E_25_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_26" name="User_Attempt" memberEnd="E_26_1 E_26_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_27" name="Attempt_Answer" memberEnd="E_27_1 E_27_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_28" name="Question_Answer" memberEnd="E_28_1 E_28_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_29" name="Exam_Result" memberEnd="E_29_1 E_29_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_30" name="User_Result" memberEnd="E_30_1 E_30_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_31" name="Attempt_Result" memberEnd="E_31_1 E_31_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_32" name="User_SentMessage" memberEnd="E_32_1 E_32_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_33" name="User_ReceivedMessage" memberEnd="E_33_1 E_33_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_34" name="Message_Attachment" memberEnd="E_34_1 E_34_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_35" name="User_Announcement" memberEnd="E_35_1 E_35_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_36" name="Announcement_Attachment" memberEnd="E_36_1 E_36_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="A_37" name="User_Audit" memberEnd="E_37_1 E_37_2"/>
+  </uml:Model>
+</xmi:XMI>

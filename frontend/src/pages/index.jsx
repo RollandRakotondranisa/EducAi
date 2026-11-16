@@ -12,6 +12,7 @@ import {
 
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import educaiLogo from "../assets/educai-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -58,9 +59,7 @@ function Landing() {
         <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-4 py-4 sm:px-8">
 
           <Link to="/" className="flex items-center gap-3">
-            <span className="grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground">
-              <Sparkles className="size-4" />
-            </span>
+            <img src={educaiLogo} alt="EduAI" className="h-11 w-20 rounded-lg object-contain" />
 
             <span className="text-lg font-semibold">
               EduAI

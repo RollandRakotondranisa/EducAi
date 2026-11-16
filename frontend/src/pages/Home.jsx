@@ -18,9 +18,10 @@ import {
   Upload,
   X,
 } from "lucide-react";
-
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import educaiLogo from "../assets/educai-logo.png";
 
 /* =========================================================
    DONNÉES
@@ -119,6 +120,10 @@ function usePrefersReducedMotion() {
   return reduced;
 }
 
+/**
+ * Hook d'observation d'intersection pour animations au scroll.
+ * Fallback navigateurs anciens : affiche directement.
+ */
 function useInView(options = {}) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
@@ -127,7 +132,6 @@ function useInView(options = {}) {
     const el = ref.current;
     if (!el) return undefined;
 
-    // Fallback navigateurs anciens : on affiche directement.
     if (typeof IntersectionObserver === "undefined") {
       setInView(true);
       return undefined;
@@ -151,6 +155,9 @@ function useInView(options = {}) {
   return [ref, inView];
 }
 
+/**
+ * Hook de compteur animé (ease-out cubic).
+ */
 function useCountUp(target, start, reducedMotion, duration = 1600) {
   const [value, setValue] = useState(0);
 
@@ -202,7 +209,6 @@ function Reveal({ as: Tag = "div", delay = 0, className = "", children, ...props
    ========================================================= */
 
 function ErrorFallback({ error, onRetry }) {
-  // Adapter selon votre bundler (ici : Vite).
   const isDev = import.meta.env?.DEV;
 
   return (
@@ -253,7 +259,6 @@ export class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, info) {
-    // Branchez ici votre outil de monitoring (Sentry, LogRocket…).
     console.error("[EduAI] Erreur interceptée :", error, info?.componentStack);
   }
 
@@ -307,6 +312,19 @@ function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
+  // Focus trap basique : fermer le menu si on clique en dehors
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const onClick = (event) => {
+      const menu = document.getElementById("menu-mobile");
+      if (menu && !menu.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [menuOpen]);
+
   return (
     <header
       className={`sticky top-0 z-40 border-b backdrop-blur transition-all duration-300 ${
@@ -315,7 +333,6 @@ function Header() {
           : "border-transparent bg-card/60"
       }`}
     >
-      {/* Barre de progression de lecture */}
       <span
         className="absolute inset-x-0 top-0 h-0.5 origin-left bg-primary transition-transform duration-150 ease-out"
         style={{ transform: `scaleX(${progress})` }}
@@ -324,9 +341,7 @@ function Header() {
 
       <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-4 py-3.5 sm:px-8">
         <Link to="/" className="flex items-center gap-3" aria-label="EduAI — accueil">
-          <span className="grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-sm">
-            <Sparkles className="size-4" />
-          </span>
+          <img src={educaiLogo} alt="EduAI" className="h-11 w-20 rounded-lg object-contain" />
           <span className="font-display text-lg font-semibold tracking-tight">
             EduAI
           </span>
@@ -345,6 +360,7 @@ function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Button asChild variant="ghost" className="hidden rounded-xl sm:inline-flex">
             <Link to="/connexion">Connexion</Link>
           </Button>
@@ -358,11 +374,9 @@ function Header() {
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
             aria-controls="menu-mobile"
+            aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             className="grid size-10 place-items-center rounded-xl border border-border bg-card text-foreground md:hidden"
           >
-            <span className="sr-only">
-              {menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            </span>
             {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
         </div>
@@ -415,7 +429,6 @@ function HeroPipeline({ reducedMotion }) {
       return undefined;
     }
     const id = window.setInterval(() => {
-      // +2 : marque une pause sur l'état « terminé » avant de reboucler.
       setStep((s) => (s + 1) % (total + 2));
     }, 1500);
     return () => window.clearInterval(id);
@@ -427,7 +440,6 @@ function HeroPipeline({ reducedMotion }) {
 
   return (
     <div className="relative">
-      {/* Badges flottants */}
       <div className="animate-float absolute -top-6 right-0 z-10 sm:-right-4">
         <div className="card-surface flex items-center gap-2 px-3.5 py-2 text-xs font-medium shadow-md">
           <Sparkles className="size-3.5 text-primary" />
@@ -443,7 +455,6 @@ function HeroPipeline({ reducedMotion }) {
         </div>
       </div>
 
-      {/* Carte principale */}
       <div className="card-surface overflow-hidden shadow-lg">
         <div className="flex items-center justify-between gap-3 border-b border-border bg-muted/60 px-5 py-3">
           <p className="flex min-w-0 items-center gap-2 text-xs font-medium text-muted-foreground">
@@ -455,7 +466,6 @@ function HeroPipeline({ reducedMotion }) {
           </Badge>
         </div>
 
-        {/* Progression */}
         <div className="h-1 w-full bg-border/60">
           <div
             className="h-full bg-primary transition-all duration-700 ease-out"
@@ -509,7 +519,6 @@ function HeroPipeline({ reducedMotion }) {
           })}
         </ol>
 
-        {/* Statut */}
         <div className="border-t border-border bg-muted/40 px-5 py-3 text-xs">
           {isDone ? (
             <p key="done" className="animate-pop flex items-center gap-2 font-medium text-success">
@@ -563,7 +572,9 @@ function StatsBand({ reducedMotion }) {
       {stats.map((stat) => (
         <Stat
           key={stat.label}
-          {...stat}
+          target={stat.target}
+          suffix={stat.suffix}
+          label={stat.label}
           inView={inView}
           reducedMotion={reducedMotion}
         />
@@ -586,7 +597,11 @@ function SubjectsMarquee() {
         Compatible avec toutes les matières : {SUBJECTS.join(", ")}.
       </p>
 
-      <div className="marquee-track flex w-max" aria-hidden="true">
+      <div
+        className="marquee-track flex w-max"
+        style={{ animation: "eduai-marquee 28s linear infinite" }}
+        aria-hidden="true"
+      >
         {[...SUBJECTS, ...SUBJECTS].map((subject, index) => (
           <span
             key={`${subject}-${index}`}
@@ -636,7 +651,6 @@ function FeatureAnalyseDemo() {
 
   return (
     <div className="mt-6 grid flex-1 items-center gap-5 rounded-2xl border border-border bg-muted/50 p-5 sm:grid-cols-[1.1fr_1fr]">
-      {/* Document scanné */}
       <div className="relative overflow-hidden rounded-xl border border-border bg-background p-4 shadow-sm">
         <div className="space-y-2.5" aria-hidden="true">
           <div className="h-2.5 w-1/2 rounded-full bg-primary/20" />
@@ -651,7 +665,6 @@ function FeatureAnalyseDemo() {
         <span className="scan-line" aria-hidden="true" />
       </div>
 
-      {/* Concepts extraits */}
       <div className="flex flex-col gap-2.5">
         <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           Concepts extraits
@@ -840,13 +853,9 @@ function SpaceCard({ space, delay }) {
 }
 
 /* =========================================================
-   NEWSLETTER (validation + timeout + gestion d'erreur)
+   NEWSLETTER
    ========================================================= */
 
-/**
- * Simulation d'appel API. À remplacer par votre endpoint réel :
- * fetch("/api/newsletter", { method: "POST", signal, body: JSON.stringify({ email }) })
- */
 function subscribeToNewsletter(email, signal) {
   return new Promise((resolve, reject) => {
     const timer = window.setTimeout(() => resolve({ ok: true, email }), 900);
@@ -862,12 +871,21 @@ function subscribeToNewsletter(email, signal) {
 
 function NewsletterForm() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
   const controllerRef = useRef(null);
 
-  // Annule toute requête en cours si le composant est démonté.
-  useEffect(() => () => controllerRef.current?.abort(), []);
+  useEffect(() => {
+    return () => {
+      if (controllerRef.current) {
+        try {
+          controllerRef.current.abort();
+        } catch {
+          // Ignore abort errors on cleanup
+        }
+      }
+    };
+  }, []);
 
   const loading = status === "loading";
   const error = status === "error";
@@ -875,11 +893,13 @@ function NewsletterForm() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    controllerRef.current?.abort();
+
+    if (controllerRef.current) {
+      try { controllerRef.current.abort(); } catch {}
+    }
 
     const value = email.trim();
 
-    // Validation côté client avant tout appel réseau.
     if (!value) {
       setStatus("error");
       setMessage("Veuillez saisir votre adresse e-mail.");
@@ -893,7 +913,9 @@ function NewsletterForm() {
 
     const controller = new AbortController();
     controllerRef.current = controller;
-    const timeoutId = window.setTimeout(() => controller.abort(), 8000);
+    const timeoutId = window.setTimeout(() => {
+      try { controller.abort(); } catch {}
+    }, 8000);
 
     setStatus("loading");
     setMessage("");
@@ -1007,9 +1029,7 @@ function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.8fr_1.3fr]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground">
-                <Sparkles className="size-4" />
-              </span>
+              <img src={educaiLogo} alt="EduAI" className="h-11 w-20 rounded-lg object-contain" />
               <span className="font-display text-lg font-semibold">EduAI</span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
@@ -1080,12 +1100,11 @@ function HomePage() {
       <Header />
 
       <main id="contenu">
-        {/* ================= HERO ================= */}
         <section className="bg-hero relative overflow-hidden">
           <div className="grid-lines absolute inset-0" aria-hidden="true" />
 
           <div className="relative mx-auto grid max-w-[1200px] items-center gap-14 px-4 pb-16 pt-12 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 lg:pb-20 lg:pt-20">
-            <div>
+            <div className="hero-copy-panel">
               <Reveal>
                 <Badge className="border-transparent bg-primary-soft text-primary">
                   <Sparkles className="size-3.5" />
@@ -1094,14 +1113,14 @@ function HomePage() {
               </Reveal>
 
               <Reveal delay={90}>
-                <h1 className="mt-6 font-display text-[2.5rem] font-semibold leading-[1.06] tracking-tight sm:text-5xl xl:text-[3.4rem]">
+                <h1 className="hero-copy-title mt-6 font-display text-[2.5rem] font-semibold leading-[1.06] tracking-tight sm:text-5xl xl:text-[3.4rem]">
                   De vos documents de cours aux notes de vos étudiants,{" "}
                   <span className="highlight italic">automatiquement</span>.
                 </h1>
               </Reveal>
 
               <Reveal delay={180}>
-                <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+                <p className="hero-copy-description mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
                   EduAI analyse vos supports, génère des évaluations adaptées,
                   corrige les copies et restitue des statistiques pédagogiques
                   exploitables.
@@ -1153,7 +1172,6 @@ function HomePage() {
 
         <SubjectsMarquee />
 
-        {/* ================= FONCTIONNALITÉS ================= */}
         <section id="fonctionnalites" className="scroll-mt-24">
           <div className="mx-auto max-w-[1200px] px-4 py-20 sm:px-8 lg:py-24">
             <Reveal className="max-w-2xl">
@@ -1217,7 +1235,6 @@ function HomePage() {
           </div>
         </section>
 
-        {/* ================= PARCOURS ================= */}
         <section
           id="parcours"
           className="bg-primary-deep relative scroll-mt-24 overflow-hidden text-white"
@@ -1275,7 +1292,6 @@ function HomePage() {
           </div>
         </section>
 
-        {/* ================= ESPACES ================= */}
         <section id="espaces" className="scroll-mt-24 bg-muted/60">
           <div className="mx-auto max-w-[1200px] px-4 py-20 sm:px-8 lg:py-24">
             <Reveal className="max-w-2xl">
@@ -1299,7 +1315,6 @@ function HomePage() {
           </div>
         </section>
 
-        {/* ================= CTA ================= */}
         <section className="mx-auto max-w-[1200px] px-4 py-20 sm:px-8 lg:py-24">
           <Reveal>
             <div className="bg-primary-deep relative overflow-hidden rounded-3xl px-6 py-14 text-center text-primary-foreground sm:px-12 sm:py-16">

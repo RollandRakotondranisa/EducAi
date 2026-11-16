@@ -1,9 +1,9 @@
 import React from "react";
 
-export function Input({
-  className = "",
-  ...props
-}) {
+/**
+ * Champ de saisie texte avec états focus / invalid / disabled.
+ */
+export function Input({ className = "", ...props }) {
   return (
     <input
       className={`

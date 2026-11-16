@@ -33,6 +33,13 @@ const registerValidator = [
     .optional()
     .isIn(["ADMIN", "TEACHER", "STUDENT"])
     .withMessage("Rôle invalide"),
+
+  body("institutionName")
+    .trim()
+    .notEmpty()
+    .withMessage("Le nom de l'école ou de l'université est obligatoire")
+    .isLength({ max: 180 })
+    .withMessage("Le nom de l'établissement ne peut pas dépasser 180 caractères"),
 ];
 
 const loginValidator = [

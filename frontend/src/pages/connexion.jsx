@@ -17,34 +17,17 @@ import {
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import apiFetch from "@/utils/api";
+import educaiLogo from "../assets/educai-logo.png";
 
 /* =========================================================
    CONSTANTS
    ========================================================= */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
-/**
- * Simulation d'appel API — à remplacer par votre endpoint réel :
- *   const res = await fetch("/api/auth/login", {
- *     method: "POST",
- *     headers: { "Content-Type": "application/json" },
- *     body: JSON.stringify(payload),
- *     signal,
- *   });
- *   if (res.status === 401) {
- *     const err = new Error("INVALID_CREDENTIALS");
- *     err.status = 401;
- *     throw err;
- *   }
- *   if (!res.ok) {
- *     const err = new Error("SERVER_ERROR");
- *     err.status = res.status;
- *     throw err;
- *   }
- *   return res.json(); // { token, user, role }
- */
 async function loginUser(payload, signal) {
   return apiFetch("/auth/login", {
     method: "POST",
@@ -75,7 +58,7 @@ function mapAuthError(error) {
 }
 
 /* =========================================================
-   HERO LATÉRAL (intro connexion)
+   HERO LATÉRAL
    ========================================================= */
 
 function SignInHero() {
@@ -96,7 +79,6 @@ function SignInHero() {
 
   return (
     <div className="relative hidden overflow-hidden rounded-2xl bg-primary-deep p-10 text-primary-foreground lg:block xl:p-14">
-      {/* Fond à points */}
       <div
         className="absolute inset-0 opacity-40"
         style={{
@@ -107,7 +89,6 @@ function SignInHero() {
         aria-hidden="true"
       />
 
-      {/* Halos */}
       <div
         className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary/40 blur-3xl"
         aria-hidden="true"
@@ -154,7 +135,6 @@ function SignInHero() {
             })}
           </ul>
 
-          {/* Carte "témoignage" */}
           <div className="rounded-xl border border-white/15 bg-white/5 p-5 backdrop-blur">
             <p className="text-sm leading-relaxed text-white/85">
               « EduAI m'a fait gagner un après-midi entier par semaine sur la
@@ -185,20 +165,60 @@ function SignInHero() {
 export default function Connexion() {
   const navigate = useNavigate();
 
-  // États du formulaire
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [remember, setRemember] = useState(true);
 
-  // États UX
   const [errors, setErrors] = useState({});
   const [globalError, setGlobalError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [oauthSubmitting, setOauthSubmitting] = useState(false);
 
-  // AbortController : annule la requête si l'utilisateur quitte la page
   const controllerRef = useRef(null);
-  useEffect(() => () => controllerRef.current?.abort(), []);
+  useEffect(() => {
+    return () => {
+      if (controllerRef.current) {
+        try { controllerRef.current.abort(); } catch {}
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.hash.slice(1));
+    const oauthError = params.get("oauthError");
+    const isSuccess = params.get("oauth") === "success";
+    if (!oauthError && !isSuccess) return;
+
+    window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+    if (oauthError) {
+      setOauthSubmitting(false);
+      setGlobalError(oauthError);
+      return;
+    }
+
+    try {
+      const user = JSON.parse(params.get("user") || "");
+      const accessToken = params.get("accessToken");
+      const refreshToken = params.get("refreshToken");
+      if (!user?.id || !accessToken || !refreshToken) throw new Error();
+      localStorage.setItem("educai_user", JSON.stringify(user));
+      localStorage.setItem("educai_access_token", accessToken);
+      localStorage.setItem("educai_refresh_token", refreshToken);
+      localStorage.setItem("educai_session", JSON.stringify({ user, accessToken, refreshToken, updatedAt: Date.now() }));
+      const role = String(user.role || "").toUpperCase();
+      navigate(role === "ADMIN" ? "/admin" : role === "TEACHER" ? "/enseignant" : role === "STUDENT" ? "/etudiant" : "/", { replace: true });
+    } catch {
+      setOauthSubmitting(false);
+      setGlobalError("La connexion sociale n'a pas pu être finalisée. Réessayez.");
+    }
+  }, [navigate]);
+
+  const startOAuth = (provider) => {
+    setGlobalError("");
+    setOauthSubmitting(true);
+    window.location.assign(`${API_URL}/auth/oauth/${provider}`);
+  };
 
   function validate(values) {
     const newErrors = {};
@@ -218,6 +238,7 @@ export default function Connexion() {
     return error ? (
       <p
         role="alert"
+        id={`err-${name}`}
         className="mt-1.5 flex items-center gap-1.5 text-xs font-medium text-error"
       >
         <AlertTriangle className="size-3.5 shrink-0" />
@@ -228,7 +249,10 @@ export default function Connexion() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    controllerRef.current?.abort();
+
+    if (controllerRef.current) {
+      try { controllerRef.current.abort(); } catch {}
+    }
 
     const values = { email, password, remember };
     const newErrors = validate(values);
@@ -241,7 +265,9 @@ export default function Connexion() {
 
     const controller = new AbortController();
     controllerRef.current = controller;
-    const timeoutId = window.setTimeout(() => controller.abort(), 10000);
+    const timeoutId = window.setTimeout(() => {
+      try { controller.abort(); } catch {}
+    }, 10000);
 
     setSubmitting(true);
     setGlobalError("");
@@ -252,16 +278,34 @@ export default function Connexion() {
         controller.signal
       );
 
-      // TODO : stocker le token, mettre à jour le contexte d'auth…
-      console.log("[EduAI] Login success", result);
+      const user = result?.data?.user ?? result?.user ?? result;
+      const accessToken = result?.data?.accessToken ?? result?.accessToken ?? null;
+      const refreshToken = result?.data?.refreshToken ?? result?.refreshToken ?? null;
+      const role = String(user?.role ?? "").toUpperCase();
 
-      // Redirection selon le rôle
+      if (user) {
+        localStorage.setItem("educai_user", JSON.stringify(user));
+      }
+      if (accessToken) {
+        localStorage.setItem("educai_access_token", accessToken);
+      }
+      if (refreshToken) {
+        localStorage.setItem("educai_refresh_token", refreshToken);
+      }
+      localStorage.setItem(
+        "educai_session",
+        JSON.stringify({ user, accessToken, refreshToken, updatedAt: Date.now() })
+      );
+
       const redirect =
-        result.role === "TEACHER"
-          ? "/enseignant"
-          : result.role === "STUDENT"
-            ? "/etudiant"
-            : "/";
+        role === "ADMIN"
+          ? "/admin"
+          : role === "TEACHER"
+            ? "/enseignant"
+            : role === "STUDENT"
+              ? "/etudiant"
+              : "/";
+
       navigate(redirect, { replace: true });
     } catch (err) {
       if (err?.name === "AbortError") {
@@ -270,7 +314,6 @@ export default function Connexion() {
         );
       } else if (err?.status === 401) {
         setGlobalError("");
-        // Message générique pour éviter l'énumération d'emails
         setErrors({ password: "Adresse e-mail ou mot de passe incorrect." });
       } else if (err?.status === 423 || err?.status === 429) {
         setGlobalError("");
@@ -297,16 +340,14 @@ export default function Connexion() {
   };
 
   return (
-    <div className="flex min-h-dvh items-center justify-center bg-background px-4 py-12">
+    <div className="relative flex min-h-dvh items-center justify-center bg-background px-4 py-12">
+      <ThemeToggle className="absolute right-4 top-4 z-10 sm:right-8 sm:top-8" />
       <div className="grid w-full max-w-[1120px] gap-8 lg:grid-cols-[1fr_480px]">
         <SignInHero />
 
         <div className="w-full">
-          {/* Logo */}
           <Link to="/" className="mb-8 flex items-center gap-3">
-            <span className="grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground">
-              <Sparkles className="size-4" />
-            </span>
+            <img src={educaiLogo} alt="EduAI" className="h-11 w-20 rounded-lg object-contain" />
             <span className="font-display text-lg font-semibold tracking-tight">
               EduAI
             </span>
@@ -320,7 +361,6 @@ export default function Connexion() {
               Ravi de vous revoir. Connectez-vous à votre espace EduAI.
             </p>
 
-            {/* Erreur globale */}
             {globalError && (
               <div
                 role="alert"
@@ -336,7 +376,6 @@ export default function Connexion() {
               onSubmit={handleSubmit}
               noValidate
             >
-              {/* E-mail */}
               <div className="space-y-2">
                 <Label htmlFor="email">Adresse e-mail</Label>
                 <div className="relative">
@@ -358,7 +397,6 @@ export default function Connexion() {
                 {fieldError("email")}
               </div>
 
-              {/* Mot de passe */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between gap-2">
                   <Label htmlFor="password">Mot de passe</Label>
@@ -395,6 +433,7 @@ export default function Connexion() {
                         ? "Masquer le mot de passe"
                         : "Afficher le mot de passe"
                     }
+                    aria-pressed={showPassword}
                     className="absolute right-2 top-1/2 grid size-8 -translate-y-1/2 place-items-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                   >
                     {showPassword ? (
@@ -407,7 +446,6 @@ export default function Connexion() {
                 {fieldError("password")}
               </div>
 
-              {/* Se souvenir de moi */}
               <label
                 htmlFor="remember"
                 className="flex cursor-pointer items-center gap-2.5 text-sm text-muted-foreground"
@@ -427,7 +465,6 @@ export default function Connexion() {
                 Rester connecté sur cet appareil
               </label>
 
-              {/* Submit */}
               <Button
                 type="submit"
                 disabled={submitting}
@@ -447,7 +484,6 @@ export default function Connexion() {
                 )}
               </Button>
 
-              {/* Séparateur "OU" */}
               <div className="relative py-2">
                 <div className="absolute inset-0 flex items-center">
                   <span className="w-full border-t border-border" />
@@ -459,14 +495,12 @@ export default function Connexion() {
                 </div>
               </div>
 
-              {/* Boutons sociaux */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3">
                 <button
                   type="button"
+                  disabled={oauthSubmitting}
                   className="flex items-center justify-center gap-2 rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-medium transition-colors hover:bg-muted"
-                  onClick={() =>
-                    console.log("[EduAI] OAuth Google — à implémenter")
-                  }
+                  onClick={() => startOAuth("google")}
                 >
                   <svg
                     className="size-4"
@@ -493,25 +527,6 @@ export default function Connexion() {
                   Google
                 </button>
 
-                <button
-                  type="button"
-                  className="flex items-center justify-center gap-2 rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-medium transition-colors hover:bg-muted"
-                  onClick={() =>
-                    console.log("[EduAI] OAuth Microsoft — à implémenter")
-                  }
-                >
-                  <svg
-                    className="size-4"
-                    viewBox="0 0 23 23"
-                    aria-hidden="true"
-                  >
-                    <path fill="#f25022" d="M1 1h10v10H1z" />
-                    <path fill="#7fba00" d="M12 1h10v10H12z" />
-                    <path fill="#00a4ef" d="M1 12h10v10H1z" />
-                    <path fill="#ffb900" d="M12 12h10v10H12z" />
-                  </svg>
-                  Microsoft
-                </button>
               </div>
             </form>
           </div>

@@ -1,0 +1,2092 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmi:version="2.5.1">
+  <uml:Model xmi:id="_model_00066" name="EduAI - UML Class Diagram">
+    <uml:packagedElement xmi:type="uml:Package" xmi:id="_pkg_00001" name="1. Utilisateurs, authentification et communication">
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00002" name="User">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00105" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_644_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_645_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00107" name="firstName" visibility="public" type="_type_00106" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_646_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_647_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00108" name="lastName" visibility="public" type="_type_00106" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_648_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_649_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00110" name="email" visibility="public" type="_type_00109" isUnique="true">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_650_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_651_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00112" name="password" visibility="public" type="_type_00111" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_652_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_653_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00113" name="role" visibility="public" type="_cls_00054" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_654_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_655_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00115" name="isActive" visibility="public" type="_type_00114" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_656_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_657_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00116" name="isSuperAdmin" visibility="public" type="_type_00114" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_658_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_659_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00118" name="superAdminKey" visibility="public" type="_type_00117" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_660_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_661_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00119" name="organizationId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_662_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_663_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00121" name="refreshToken" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_664_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_665_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00122" name="resetPasswordToken" visibility="public" type="_type_00111" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_666_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_667_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00124" name="resetPasswordExpires" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_668_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_669_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00125" name="avatar" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_670_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_671_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00126" name="specialty" visibility="public" type="_type_00109" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_672_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_673_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00127" name="classesHeld" visibility="public" type="_type_00111" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_674_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_675_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00129" name="university" visibility="public" type="_type_00128" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_676_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_677_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00131" name="academicTitle" visibility="public" type="_type_00130" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_678_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_679_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00132" name="bio" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_680_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_681_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00134" name="matricule" visibility="public" type="_type_00133" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_682_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_683_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00135" name="level" visibility="public" type="_type_00133" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_684_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_685_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00136" name="program" visibility="public" type="_type_00109" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_686_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_687_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00138" name="phone" visibility="public" type="_type_00137" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_688_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_689_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00139" name="studentProfileCompleted" visibility="public" type="_type_00114" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_690_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_691_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00140" name="academicClassId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_692_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_693_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00141" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_694_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_695_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00142" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_696_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_697_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00003" name="Session">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00144" name="id" visibility="public" type="_type_00143" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_698_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_699_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00145" name="userId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_700_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_701_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00146" name="refreshTokenHash" visibility="public" type="_type_00111" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_702_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_703_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00147" name="deviceInfo" visibility="public" type="_type_00111" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_704_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_705_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00149" name="ipAddress" visibility="public" type="_type_00148" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_706_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_707_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00150" name="expiresAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_708_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_709_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00151" name="revokedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_710_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_711_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00152" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_712_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_713_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00153" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_714_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_715_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00004" name="UserRequest">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00154" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_716_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_717_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00155" name="userId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_718_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_719_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00156" name="firstName" visibility="public" type="_type_00106" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_720_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_721_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00157" name="lastName" visibility="public" type="_type_00106" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_722_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_723_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00158" name="email" visibility="public" type="_type_00109" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_724_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_725_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00159" name="requestedRole" visibility="public" type="_cls_00055" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_726_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_727_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00160" name="status" visibility="public" type="_cls_00056" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_728_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_729_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00161" name="approvedBy" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_730_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_731_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00162" name="approvalReason" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_732_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_733_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00163" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_734_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_735_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00164" name="approvedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_736_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_737_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00005" name="Audit">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00165" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_738_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_739_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00166" name="userId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_740_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_741_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00167" name="action" visibility="public" type="_type_00106" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_742_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_743_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00168" name="description" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_744_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_745_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00169" name="targetUserId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_746_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_747_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00170" name="ipAddress" visibility="public" type="_type_00148" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_748_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_749_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00171" name="userAgent" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_750_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_751_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00172" name="status" visibility="public" type="_cls_00057" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_752_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_753_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00174" name="metadata" visibility="public" type="_type_00173" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_754_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_755_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00175" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_756_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_757_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00006" name="Message">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00176" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_758_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_759_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00177" name="senderId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_760_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_761_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00178" name="recipientId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_762_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_763_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00180" name="title" visibility="public" type="_type_00179" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_764_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_765_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00181" name="content" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_766_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_767_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00182" name="isRead" visibility="public" type="_type_00114" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_768_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_769_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00183" name="readAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_770_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_771_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00184" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_772_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_773_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00185" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_774_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_775_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00007" name="MessageAttachment">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00186" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_776_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_777_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00187" name="messageId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_778_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_779_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00188" name="originalName" visibility="public" type="_type_00111" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_780_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_781_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00189" name="storedName" visibility="public" type="_type_00111" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_782_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_783_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00190" name="mimeType" visibility="public" type="_type_00130" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_784_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_785_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00192" name="filePath" visibility="public" type="_type_00191" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_786_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_787_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00194" name="fileSize" visibility="public" type="_type_00193" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_788_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_789_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00195" name="kind" visibility="public" type="_cls_00064" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_790_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_791_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00196" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_792_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_793_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00197" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_794_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_795_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00008" name="Announcement">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00198" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_796_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_797_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00199" name="title" visibility="public" type="_type_00179" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_798_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_799_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00200" name="content" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_800_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_801_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00201" name="targetRole" visibility="public" type="_cls_00065" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_802_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_803_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00202" name="createdBy" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_804_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_805_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00203" name="publishedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_806_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_807_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00204" name="expiresAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_808_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_809_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00205" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_810_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_811_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00206" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_812_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_813_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00009" name="AnnouncementAttachment">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00207" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_814_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_815_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00208" name="announcementId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_816_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_817_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00209" name="originalName" visibility="public" type="_type_00111" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_818_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_819_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00210" name="storedName" visibility="public" type="_type_00111" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_820_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_821_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00211" name="mimeType" visibility="public" type="_type_00130" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_822_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_823_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00212" name="filePath" visibility="public" type="_type_00191" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_824_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_825_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00213" name="fileSize" visibility="public" type="_type_00193" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_826_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_827_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00214" name="kind" visibility="public" type="_cls_00064" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_828_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_829_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00215" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_830_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_831_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00216" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_832_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_833_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Package" xmi:id="_pkg_00010" name="2. Etablissements et structure academique">
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00011" name="Organization">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00217" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_834_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_835_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00218" name="name" visibility="public" type="_type_00128" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_836_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_837_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00219" name="normalizedName" visibility="public" type="_type_00128" isUnique="true">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_838_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_839_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00220" name="isLegacy" visibility="public" type="_type_00114" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_840_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_841_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00221" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_842_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_843_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00222" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_844_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_845_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00012" name="AcademicYear">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00223" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_846_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_847_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00225" name="name" visibility="public" type="_type_00224" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_848_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_849_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00227" name="startsAt" visibility="public" type="_type_00226" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_850_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_851_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00228" name="endsAt" visibility="public" type="_type_00226" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_852_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_853_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00229" name="isActive" visibility="public" type="_type_00114" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_854_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_855_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00230" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_856_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_857_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00231" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_858_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_859_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00013" name="AcademicProgram">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00232" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_860_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_861_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00233" name="name" visibility="public" type="_type_00109" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_862_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_863_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00234" name="isActive" visibility="public" type="_type_00114" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_864_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_865_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00235" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_866_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_867_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00236" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_868_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_869_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00014" name="AcademicLevel">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00237" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_870_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_871_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00238" name="name" visibility="public" type="_type_00133" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_872_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_873_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00239" name="position" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_874_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_875_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00240" name="isActive" visibility="public" type="_type_00114" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_876_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_877_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00241" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_878_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_879_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00242" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_880_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_881_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00015" name="AcademicClass">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00243" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_882_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_883_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00244" name="name" visibility="public" type="_type_00106" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_884_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_885_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00245" name="academicYearId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_886_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_887_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00246" name="programId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_888_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_889_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00247" name="levelId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_890_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_891_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00248" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_892_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_893_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00249" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_894_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_895_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00016" name="AcademicClassTeacher">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00250" name="academicClassId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00251">
+            <uml:body>Cle primaire declaree dans le modele Sequelize.</uml:body>
+          </uml:ownedComment>
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_896_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_897_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00252" name="teacherId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00253">
+            <uml:body>Cle primaire declaree dans le modele Sequelize.</uml:body>
+          </uml:ownedComment>
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_898_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_899_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00254" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_900_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_901_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00255" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_902_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_903_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Package" xmi:id="_pkg_00017" name="3. Cours et inscriptions">
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00018" name="Course">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00256" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_904_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_905_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00257" name="name" visibility="public" type="_type_00109" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_906_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_907_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00259" name="code" visibility="public" type="_type_00258" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_908_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_909_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00260" name="description" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_910_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_911_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00261" name="targetProgram" visibility="public" type="_type_00109" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_912_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_913_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00262" name="targetLevel" visibility="public" type="_type_00133" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_914_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_915_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00263" name="targetAcademicClassId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_916_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_917_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00264" name="teacherId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_918_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_919_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00265" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_920_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_921_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00266" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_922_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_923_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00019" name="CourseStudent">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00267" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_924_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_925_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00268" name="courseId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_926_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_927_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00269" name="studentId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_928_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_929_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00270" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_930_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_931_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00271" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_932_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_933_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Package" xmi:id="_pkg_00020" name="4. Documents pedagogiques">
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00021" name="Document">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00272" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_934_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_935_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00273" name="courseId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_936_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_937_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00274" name="uploadedBy" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_938_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_939_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00275" name="originalName" visibility="public" type="_type_00111" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_940_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_941_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00276" name="fileName" visibility="public" type="_type_00111" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_942_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_943_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00277" name="filePath" visibility="public" type="_type_00191" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_944_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_945_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00278" name="mimeType" visibility="public" type="_type_00106" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_946_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_947_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00279" name="extension" visibility="public" type="_type_00224" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_948_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_949_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00280" name="fileSize" visibility="public" type="_type_00193" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_950_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_951_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00281" name="status" visibility="public" type="_cls_00058" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_952_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_953_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00282" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_954_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_955_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00283" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_956_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_957_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00022" name="DocumentHistory">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00284" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_958_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_959_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00285" name="documentId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_960_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_961_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00286" name="userId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_962_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_963_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00287" name="action" visibility="public" type="_cls_00059" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_964_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_965_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00288" name="details" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_966_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_967_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00289" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_968_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_969_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00290" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_970_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_971_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Package" xmi:id="_pkg_00023" name="5. Examens et evaluations">
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00024" name="Exam">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00291" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_972_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_973_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00292" name="courseId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_974_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_975_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00293" name="teacherId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_976_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_977_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00294" name="title" visibility="public" type="_type_00179" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_978_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_979_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00295" name="description" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_980_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_981_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00296" name="targetProgram" visibility="public" type="_type_00109" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_982_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_983_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00297" name="targetLevel" visibility="public" type="_type_00133" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_984_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_985_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00298" name="targetAcademicClassId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_986_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_987_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00299" name="expectedQuestionCount" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_988_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_989_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00300" name="duration" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_990_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_991_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00301" name="startDate" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_992_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_993_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00302" name="endDate" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_994_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_995_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00303" name="status" visibility="public" type="_cls_00060" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_996_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_997_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00304" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_998_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_999_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00305" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1000_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1001_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00025" name="ExamQuestion">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00306" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1002_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1003_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00307" name="examId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1004_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1005_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00308" name="question" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1006_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1007_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00309" name="type" visibility="public" type="_cls_00061" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1008_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1009_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00311" name="points" visibility="public" type="_type_00310" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1010_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1011_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00312" name="position" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1012_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1013_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00313" name="options" visibility="public" type="_type_00173" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1014_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1015_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00314" name="correctAnswer" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1016_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1017_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00315" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1018_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1019_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00316" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1020_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1021_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00026" name="ExamAttempt">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00317" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1022_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1023_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00318" name="examId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1024_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1025_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00319" name="studentId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1026_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1027_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00320" name="startedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1028_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1029_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00321" name="submittedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1030_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1031_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00322" name="expiresAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1032_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1033_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00323" name="status" visibility="public" type="_cls_00062" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1034_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1035_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00324" name="score" visibility="public" type="_type_00310" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1036_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1037_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00325" name="totalPoints" visibility="public" type="_type_00310" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1038_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1039_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00326" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1040_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1041_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00327" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1042_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1043_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00027" name="ExamAnswer">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00328" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1044_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1045_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00329" name="attemptId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1046_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1047_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00330" name="questionId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1048_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1049_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00331" name="selectedOption" visibility="public" type="_type_00111" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1050_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1051_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00332" name="answerText" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1052_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1053_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00334" name="pointsObtained" visibility="public" type="_type_00333" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1054_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1055_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00335" name="isCorrected" visibility="public" type="_type_00114" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1056_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1057_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00336" name="feedback" visibility="public" type="_type_00120" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1058_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1059_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00337" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1060_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1061_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00338" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1062_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1063_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Package" xmi:id="_pkg_00028" name="6. Resultats">
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00029" name="ExamResult">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00339" name="id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1064_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1065_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00340" name="studentId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1066_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1067_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00341" name="examId" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1068_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1069_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00342" name="attemptId" visibility="public" type="_type_00104" isUnique="true">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1070_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1071_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00343" name="status" visibility="public" type="_cls_00063" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1072_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1073_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00344" name="score" visibility="public" type="_type_00333" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1074_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1075_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00345" name="totalPoints" visibility="public" type="_type_00333" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1076_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1077_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00346" name="totalQuestions" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1078_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1079_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00347" name="correctAnswers" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1080_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1081_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00348" name="wrongAnswers" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1082_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1083_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00349" name="unansweredQuestions" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1084_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1085_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00350" name="percentage" visibility="public" type="_type_00310" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1086_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1087_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00351" name="submittedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1088_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1089_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00352" name="createdAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1090_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1091_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00353" name="updatedAt" visibility="public" type="_type_00123" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1092_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1093_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Package" xmi:id="_pkg_00030" name="7. Module d'intelligence artificielle">
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00031" name="RAGService">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00355" name="embeddings" visibility="private" type="_type_00354" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1094_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1095_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00357" name="vectorStores" visibility="private" type="_type_00356" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1096_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1097_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00359" name="lock" visibility="private" type="_type_00358" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1098_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1099_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00361" name="indexDir" visibility="private" type="_type_00360" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1100_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1101_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedOperation xmi:type="uml:Operation" xmi:id="_op_00362" name="split_text" visibility="public">
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00364" name="text" direction="in" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1102_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1103_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00365" name="document_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1104_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1105_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00366" name="course_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1106_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1107_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00367" name="teacher_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1108_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1109_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00369" direction="return" type="_type_00368">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1110_l" value="0" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1111_u" value="*" />
+          </uml:ownedParameter>
+        </uml:ownedOperation>
+        <uml:ownedOperation xmi:type="uml:Operation" xmi:id="_op_00370" name="create_index" visibility="public">
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00371" name="text" direction="in" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1112_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1113_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00372" name="document_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1114_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1115_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00373" name="course_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1116_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1117_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00374" name="teacher_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1118_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1119_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00375" direction="return" type="_type_00356">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1120_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1121_u" value="1" />
+          </uml:ownedParameter>
+        </uml:ownedOperation>
+        <uml:ownedOperation xmi:type="uml:Operation" xmi:id="_op_00376" name="search" visibility="public">
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00377" name="query" direction="in" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1122_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1123_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00378" name="course_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1124_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1125_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00379" name="document_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1126_l" value="0" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1127_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00380" name="teacher_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1128_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1129_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00381" name="k" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1130_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1131_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00382" direction="return" type="_type_00368">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1132_l" value="0" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1133_u" value="*" />
+          </uml:ownedParameter>
+        </uml:ownedOperation>
+        <uml:ownedOperation xmi:type="uml:Operation" xmi:id="_op_00383" name="get_context" visibility="public">
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00384" name="query" direction="in" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1134_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1135_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00385" name="course_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1136_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1137_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00386" name="document_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1138_l" value="0" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1139_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00387" name="teacher_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1140_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1141_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00388" name="k" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1142_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1143_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00389" direction="return" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1144_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1145_u" value="1" />
+          </uml:ownedParameter>
+        </uml:ownedOperation>
+        <uml:ownedOperation xmi:type="uml:Operation" xmi:id="_op_00390" name="get_full_context" visibility="public">
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00391" name="course_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1146_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1147_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00392" name="teacher_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1148_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1149_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00393" name="document_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1150_l" value="0" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1151_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00394" direction="return" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1152_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1153_u" value="1" />
+          </uml:ownedParameter>
+        </uml:ownedOperation>
+        <uml:ownedOperation xmi:type="uml:Operation" xmi:id="_op_00395" name="_load_indexes" visibility="private">
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00397" direction="return" type="_type_00396">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1154_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1155_u" value="1" />
+          </uml:ownedParameter>
+        </uml:ownedOperation>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00032" name="QuestionService">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00399" name="llm" visibility="private" type="_type_00398" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1156_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1157_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedOperation xmi:type="uml:Operation" xmi:id="_op_00400" name="generate_questions" visibility="public">
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00401" name="context" direction="in" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1158_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1159_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00402" name="number_of_questions" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1160_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1161_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00403" name="question_type" direction="in" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1162_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1163_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00404" name="difficulty" direction="in" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1164_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1165_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00405" direction="return" type="_type_00356">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1166_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1167_u" value="1" />
+          </uml:ownedParameter>
+        </uml:ownedOperation>
+        <uml:ownedOperation xmi:type="uml:Operation" xmi:id="_op_00406" name="generate_from_document" visibility="public">
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00407" name="query" direction="in" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1168_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1169_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00408" name="teacher_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1170_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1171_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00409" name="course_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1172_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1173_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00410" name="document_id" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1174_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1175_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00411" name="number_of_questions" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1176_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1177_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00412" name="question_type" direction="in" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1178_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1179_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00413" name="difficulty" direction="in" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1180_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1181_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00414" direction="return" type="_type_00356">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1182_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1183_u" value="1" />
+          </uml:ownedParameter>
+        </uml:ownedOperation>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00033" name="CorrectionService">
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00415" name="llm" visibility="private" type="_type_00398" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1184_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1185_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedOperation xmi:type="uml:Operation" xmi:id="_op_00416" name="correct_answer" visibility="public">
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00417" name="question" direction="in" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1186_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1187_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00418" name="expected_answer" direction="in" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1188_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1189_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00419" name="student_answer" direction="in" type="_type_00363">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1190_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1191_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00420" name="points" direction="in" type="_type_00104">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1192_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1193_u" value="1" />
+          </uml:ownedParameter>
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00421" direction="return" type="_type_00356">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1194_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1195_u" value="1" />
+          </uml:ownedParameter>
+        </uml:ownedOperation>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00034" name="LLMRequest">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00422">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00423" name="message" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1196_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1197_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00425" name="role" visibility="public" type="_type_00424" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1198_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1199_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00427" name="context" visibility="public" type="_type_00426" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1200_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1201_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00035" name="DocumentAnalysisResponse">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00428">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00429" name="filename" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1202_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1203_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00430" name="file_type" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1204_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1205_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00431" name="characters" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1206_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1207_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00432" name="words" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1208_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1209_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00433" name="text" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1210_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1211_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00036" name="DocumentIndexRequest">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00434">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00435" name="document_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1212_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1213_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00436" name="course_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1214_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1215_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00437" name="teacher_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1216_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1217_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00438" name="text" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1218_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1219_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00037" name="DocumentIndexResponse">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00439">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00440" name="document_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1220_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1221_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00441" name="course_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1222_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1223_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00442" name="chunks" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1224_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1225_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00443" name="status" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1226_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1227_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00038" name="RAGSearchRequest">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00444">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00445" name="query" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1228_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1229_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00446" name="course_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1230_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1231_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00447" name="document_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1232_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1233_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00448" name="teacher_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1234_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1235_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00449" name="k" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1236_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1237_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00039" name="DocumentChatRequest">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00450">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00451" name="message" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1238_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1239_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00452" name="document_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1240_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1241_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00453" name="course_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1242_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1243_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00454" name="teacher_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1244_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1245_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00040" name="CourseChatRequest">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00455">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00456" name="message" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1246_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1247_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00457" name="course_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1248_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1249_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00458" name="teacher_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1250_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1251_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00041" name="RAGSearchResult">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00459">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00460" name="content" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1252_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1253_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00461" name="document_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1254_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1255_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00462" name="course_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1256_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1257_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00042" name="RAGSearchResponse">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00463">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00464" name="results" visibility="public" type="_cls_00041" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1258_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1259_u" value="*" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00465" name="query" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1260_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1261_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00466" name="course_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1262_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1263_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00043" name="QuestionOption">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00467">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00468" name="id" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1264_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1265_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00469" name="text" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1266_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1267_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00044" name="Question">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00470">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00471" name="id" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1268_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1269_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00473" name="type" visibility="public" type="_type_00472" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1270_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1271_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00474" name="question" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1272_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1273_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00475" name="options" visibility="public" type="_cls_00043" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1274_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1275_u" value="*" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00476" name="correct_answer" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1276_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1277_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00477" name="explanation" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1278_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1279_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00479" name="difficulty" visibility="public" type="_type_00478" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1280_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1281_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00480" name="points" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1282_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1283_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedOperation xmi:type="uml:Operation" xmi:id="_op_00481" name="validate_mcq" visibility="public">
+          <uml:ownedParameter xmi:type="uml:Parameter" xmi:id="_param_00482" direction="return" type="_cls_00044">
+            <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1284_l" value="1" />
+            <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1285_u" value="1" />
+          </uml:ownedParameter>
+        </uml:ownedOperation>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00045" name="QuestionGenerationRequest">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00483">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00484" name="query" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1286_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1287_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00485" name="teacher_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1288_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1289_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00486" name="document_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1290_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1291_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00487" name="course_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1292_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1293_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00488" name="number_of_questions" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1294_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1295_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00489" name="question_type" visibility="public" type="_type_00472" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1296_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1297_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00490" name="difficulty" visibility="public" type="_type_00478" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1298_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1299_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00046" name="QuestionGenerationResponse">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00491">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00492" name="questions" visibility="public" type="_cls_00044" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1300_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1301_u" value="*" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00493" name="source" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1302_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1303_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00047" name="CorrectionRequest">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00494">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00495" name="question" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1304_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1305_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00496" name="expected_answer" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1306_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1307_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00497" name="student_answer" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1308_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1309_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00498" name="points" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1310_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1311_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00048" name="CorrectionResponse">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00499">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00501" name="score" visibility="public" type="_type_00500" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1312_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1313_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00502" name="max_score" visibility="public" type="_type_00500" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1314_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1315_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00503" name="is_correct" visibility="public" type="_type_00114" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1316_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1317_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00504" name="feedback" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1318_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1319_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00505" name="explanation" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1320_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1321_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00506" name="strengths" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1322_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1323_u" value="*" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00507" name="weaknesses" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1324_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1325_u" value="*" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00049" name="ExamGradingQuestion">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00508">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00509" name="question_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1326_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1327_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00510" name="question" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1328_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1329_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00512" name="type" visibility="public" type="_type_00511" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1330_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1331_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00513" name="points" visibility="public" type="_type_00500" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1332_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1333_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00514" name="options" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1334_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1335_u" value="*" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00515" name="expected_answer" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1336_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1337_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00516" name="student_answer" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1338_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1339_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00050" name="ExamGradingRequest">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00517">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00518" name="questions" visibility="public" type="_cls_00049" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1340_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1341_u" value="*" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00051" name="ExamGradeSuggestion">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00519">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00520" name="question_id" visibility="public" type="_type_00104" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1342_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1343_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00521" name="points_obtained" visibility="public" type="_type_00500" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1344_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1345_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00522" name="feedback" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1346_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1347_u" value="1" />
+        </uml:ownedAttribute>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00523" name="rationale" visibility="public" type="_type_00363" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1348_l" value="1" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1349_u" value="1" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Class" xmi:id="_cls_00052" name="ExamGradingResponse">
+        <uml:ownedComment xmi:type="uml:Comment" xmi:id="_comment_00524">
+          <uml:body>Stereotype observe: Pydantic</uml:body>
+        </uml:ownedComment>
+        <uml:ownedAttribute xmi:type="uml:Property" xmi:id="_prop_00525" name="grades" visibility="public" type="_cls_00051" isUnique="false">
+          <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1350_l" value="0" />
+          <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1351_u" value="*" />
+        </uml:ownedAttribute>
+      </uml:packagedElement>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Package" xmi:id="_pkg_00053" name="8. Services et composants techniques" />
+    <uml:packagedElement xmi:type="uml:Package" xmi:id="_pkg_00067" name="Types et enumerations">
+      <uml:packagedElement xmi:type="uml:Enumeration" xmi:id="_cls_00054" name="Role">
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00068" name="ADMIN" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00069" name="TEACHER" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00070" name="STUDENT" />
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Enumeration" xmi:id="_cls_00055" name="RequestedRole">
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00071" name="ADMIN" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00072" name="TEACHER" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00073" name="STUDENT" />
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Enumeration" xmi:id="_cls_00056" name="RequestStatus">
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00074" name="PENDING" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00075" name="APPROVED" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00076" name="REJECTED" />
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Enumeration" xmi:id="_cls_00057" name="AuditStatus">
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00077" name="SUCCESS" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00078" name="FAILED" />
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Enumeration" xmi:id="_cls_00058" name="DocumentStatus">
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00079" name="UPLOADED" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00080" name="PROCESSING" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00081" name="PROCESSED" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00082" name="FAILED" />
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Enumeration" xmi:id="_cls_00059" name="DocumentAction">
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00083" name="UPLOAD" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00084" name="VIEW" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00085" name="DOWNLOAD" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00086" name="DELETE" />
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Enumeration" xmi:id="_cls_00060" name="ExamStatus">
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00087" name="DRAFT" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00088" name="PUBLISHED" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00089" name="CLOSED" />
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Enumeration" xmi:id="_cls_00061" name="ExamQuestionType">
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00090" name="MCQ" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00091" name="OPEN" />
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Enumeration" xmi:id="_cls_00062" name="AttemptStatus">
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00092" name="IN_PROGRESS" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00093" name="SUBMITTED" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00094" name="GRADED" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00095" name="ABSENT" />
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Enumeration" xmi:id="_cls_00063" name="ResultStatus">
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00096" name="PRESENT" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00097" name="ABSENT" />
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Enumeration" xmi:id="_cls_00064" name="AttachmentKind">
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00098" name="FILE" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00099" name="IMAGE" />
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:Enumeration" xmi:id="_cls_00065" name="AnnouncementTargetRole">
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00100" name="STUDENT" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00101" name="TEACHER" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00102" name="ALL" />
+        <uml:ownedLiteral xmi:type="uml:EnumerationLiteral" xmi:id="_lit_00103" name="ADMIN" />
+      </uml:packagedElement>
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00104" name="Integer" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00106" name="String(100)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00109" name="String(150)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00111" name="String(255)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00114" name="Boolean" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00117" name="String(32)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00120" name="Text" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00123" name="Date" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00128" name="String(180)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00130" name="String(120)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00133" name="String(80)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00137" name="String(30)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00143" name="UUID" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00148" name="String(45)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00173" name="JSON" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00179" name="String(200)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00191" name="String(500)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00193" name="BigInteger" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00224" name="String(20)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00226" name="DateOnly" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00258" name="String(50)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00310" name="Decimal(5,2)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00333" name="Decimal(10,2)" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00354" name="GoogleGenerativeAIEmbeddings" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00356" name="dict" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00358" name="RLock" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00360" name="Path" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00363" name="String" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00368" name="LangChainDocument" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00396" name="None" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00398" name="ChatGoogleGenerativeAI" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00424" name="Literal[TEACHER,STUDENT,ADMIN]" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00426" name="dict[str,Any]" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00472" name="Literal[mcq,open]" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00478" name="Literal[easy,medium,hard]" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00500" name="Float" />
+      <uml:packagedElement xmi:type="uml:PrimitiveType" xmi:id="_type_00511" name="Literal[MCQ,OPEN]" />
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00526" name="organization / users" memberEnd="_end_00527 _end_00528" navigableOwnedEnd="_end_00527 _end_00528">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00527" name="organization" type="_cls_00011" visibility="public" association="_assoc_00526">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1352_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1353_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00528" name="user" type="_cls_00002" visibility="public" association="_assoc_00526">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1354_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1355_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00529" name="user / sessions" memberEnd="_end_00530 _end_00531" navigableOwnedEnd="_end_00530 _end_00531">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00530" name="user" type="_cls_00002" visibility="public" association="_assoc_00529">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1356_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1357_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00531" name="session" type="_cls_00003" visibility="public" association="_assoc_00529">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1358_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1359_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00532" name="academicYear / classes" memberEnd="_end_00533 _end_00534" navigableOwnedEnd="_end_00533 _end_00534">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00533" name="academicYear" type="_cls_00012" visibility="public" association="_assoc_00532">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1360_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1361_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00534" name="academicClass" type="_cls_00015" visibility="public" association="_assoc_00532">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1362_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1363_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00535" name="program / classes" memberEnd="_end_00536 _end_00537" navigableOwnedEnd="_end_00536 _end_00537">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00536" name="academicProgram" type="_cls_00013" visibility="public" association="_assoc_00535">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1364_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1365_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00537" name="academicClass" type="_cls_00015" visibility="public" association="_assoc_00535">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1366_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1367_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00538" name="level / classes" memberEnd="_end_00539 _end_00540" navigableOwnedEnd="_end_00539 _end_00540">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00539" name="academicLevel" type="_cls_00014" visibility="public" association="_assoc_00538">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1368_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1369_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00540" name="academicClass" type="_cls_00015" visibility="public" association="_assoc_00538">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1370_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1371_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00541" name="academicClass / students" memberEnd="_end_00542 _end_00543" navigableOwnedEnd="_end_00542 _end_00543">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00542" name="academicClass" type="_cls_00015" visibility="public" association="_assoc_00541">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1372_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1373_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00543" name="user" type="_cls_00002" visibility="public" association="_assoc_00541">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1374_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1375_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00544" name="teachers" memberEnd="_end_00545 _end_00546" navigableOwnedEnd="_end_00545 _end_00546">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00545" name="academicClass" type="_cls_00015" visibility="public" association="_assoc_00544">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1376_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1377_u" value="*" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00546" name="user" type="_cls_00002" visibility="public" association="_assoc_00544">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1378_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1379_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00547" name="teaching-class links" memberEnd="_end_00548 _end_00549" navigableOwnedEnd="_end_00548 _end_00549">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00548" name="academicClass" type="_cls_00015" visibility="public" association="_assoc_00547">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1380_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1381_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00549" name="academicClassTeacher" type="_cls_00016" visibility="public" association="_assoc_00547">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1382_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1383_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00550" name="teacher links" memberEnd="_end_00551 _end_00552" navigableOwnedEnd="_end_00551 _end_00552">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00551" name="user" type="_cls_00002" visibility="public" association="_assoc_00550">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1384_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1385_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00552" name="academicClassTeacher" type="_cls_00016" visibility="public" association="_assoc_00550">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1386_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1387_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00553" name="teacher / courses" memberEnd="_end_00554 _end_00555" navigableOwnedEnd="_end_00554 _end_00555">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00554" name="user" type="_cls_00002" visibility="public" association="_assoc_00553">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1388_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1389_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00555" name="course" type="_cls_00018" visibility="public" association="_assoc_00553">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1390_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1391_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00556" name="enrollments" memberEnd="_end_00557 _end_00558" navigableOwnedEnd="_end_00557 _end_00558">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00557" name="course" type="_cls_00018" visibility="public" association="_assoc_00556">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1392_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1393_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00558" name="courseStudent" type="_cls_00019" visibility="public" association="_assoc_00556">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1394_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1395_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00559" name="student enrollments" memberEnd="_end_00560 _end_00561" navigableOwnedEnd="_end_00560 _end_00561">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00560" name="user" type="_cls_00002" visibility="public" association="_assoc_00559">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1396_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1397_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00561" name="courseStudent" type="_cls_00019" visibility="public" association="_assoc_00559">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1398_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1399_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00562" name="targetClass / courses" memberEnd="_end_00563 _end_00564" navigableOwnedEnd="_end_00563 _end_00564">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00563" name="academicClass" type="_cls_00015" visibility="public" association="_assoc_00562">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1400_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1401_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00564" name="course" type="_cls_00018" visibility="public" association="_assoc_00562">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1402_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1403_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00565" name="course / documents" memberEnd="_end_00566 _end_00567" navigableOwnedEnd="_end_00566 _end_00567">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00566" name="course" type="_cls_00018" visibility="public" association="_assoc_00565">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1404_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1405_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00567" name="document" type="_cls_00021" visibility="public" association="_assoc_00565">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1406_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1407_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00568" name="uploader / documents" memberEnd="_end_00569 _end_00570" navigableOwnedEnd="_end_00569 _end_00570">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00569" name="user" type="_cls_00002" visibility="public" association="_assoc_00568">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1408_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1409_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00570" name="document" type="_cls_00021" visibility="public" association="_assoc_00568">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1410_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1411_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00571" name="history (CASCADE)" memberEnd="_end_00572 _end_00573" navigableOwnedEnd="_end_00572 _end_00573">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00572" name="document" type="_cls_00021" visibility="public" association="_assoc_00571" aggregation="composite">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1412_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1413_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00573" name="documentHistory" type="_cls_00022" visibility="public" association="_assoc_00571">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1414_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1415_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00574" name="actor / history" memberEnd="_end_00575 _end_00576" navigableOwnedEnd="_end_00575 _end_00576">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00575" name="user" type="_cls_00002" visibility="public" association="_assoc_00574">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1416_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1417_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00576" name="documentHistory" type="_cls_00022" visibility="public" association="_assoc_00574">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1418_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1419_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00577" name="course / exams" memberEnd="_end_00578 _end_00579" navigableOwnedEnd="_end_00578 _end_00579">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00578" name="course" type="_cls_00018" visibility="public" association="_assoc_00577">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1420_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1421_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00579" name="exam" type="_cls_00024" visibility="public" association="_assoc_00577">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1422_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1423_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00580" name="teacher / createdExams" memberEnd="_end_00581 _end_00582" navigableOwnedEnd="_end_00581 _end_00582">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00581" name="user" type="_cls_00002" visibility="public" association="_assoc_00580">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1424_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1425_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00582" name="exam" type="_cls_00024" visibility="public" association="_assoc_00580">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1426_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1427_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00583" name="targetClass / exams" memberEnd="_end_00584 _end_00585" navigableOwnedEnd="_end_00584 _end_00585">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00584" name="academicClass" type="_cls_00015" visibility="public" association="_assoc_00583">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1428_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1429_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00585" name="exam" type="_cls_00024" visibility="public" association="_assoc_00583">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1430_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1431_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00586" name="questions (CASCADE)" memberEnd="_end_00587 _end_00588" navigableOwnedEnd="_end_00587 _end_00588">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00587" name="exam" type="_cls_00024" visibility="public" association="_assoc_00586" aggregation="composite">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1432_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1433_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00588" name="examQuestion" type="_cls_00025" visibility="public" association="_assoc_00586">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1434_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1435_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00589" name="exam / attempts" memberEnd="_end_00590 _end_00591" navigableOwnedEnd="_end_00590 _end_00591">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00590" name="exam" type="_cls_00024" visibility="public" association="_assoc_00589">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1436_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1437_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00591" name="examAttempt" type="_cls_00026" visibility="public" association="_assoc_00589">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1438_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1439_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00592" name="student / attempts" memberEnd="_end_00593 _end_00594" navigableOwnedEnd="_end_00593 _end_00594">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00593" name="user" type="_cls_00002" visibility="public" association="_assoc_00592">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1440_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1441_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00594" name="examAttempt" type="_cls_00026" visibility="public" association="_assoc_00592">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1442_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1443_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00595" name="attempt / answers (CASCADE)" memberEnd="_end_00596 _end_00597" navigableOwnedEnd="_end_00596 _end_00597">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00596" name="examAttempt" type="_cls_00026" visibility="public" association="_assoc_00595">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1444_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1445_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00597" name="examAnswer" type="_cls_00027" visibility="public" association="_assoc_00595">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1446_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1447_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00598" name="question / answers (CASCADE)" memberEnd="_end_00599 _end_00600" navigableOwnedEnd="_end_00599 _end_00600">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00599" name="examQuestion" type="_cls_00025" visibility="public" association="_assoc_00598">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1448_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1449_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00600" name="examAnswer" type="_cls_00027" visibility="public" association="_assoc_00598">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1450_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1451_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00601" name="result / attempt (unique nullable FK)" memberEnd="_end_00602 _end_00603" navigableOwnedEnd="_end_00602 _end_00603">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00602" name="examAttempt" type="_cls_00026" visibility="public" association="_assoc_00601">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1452_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1453_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00603" name="examResult" type="_cls_00029" visibility="public" association="_assoc_00601">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1454_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1455_u" value="1" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00604" name="exam / results" memberEnd="_end_00605 _end_00606" navigableOwnedEnd="_end_00605 _end_00606">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00605" name="exam" type="_cls_00024" visibility="public" association="_assoc_00604">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1456_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1457_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00606" name="examResult" type="_cls_00029" visibility="public" association="_assoc_00604">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1458_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1459_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00607" name="student / results" memberEnd="_end_00608 _end_00609" navigableOwnedEnd="_end_00608 _end_00609">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00608" name="user" type="_cls_00002" visibility="public" association="_assoc_00607">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1460_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1461_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00609" name="examResult" type="_cls_00029" visibility="public" association="_assoc_00607">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1462_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1463_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00610" name="sender / sentMessages" memberEnd="_end_00611 _end_00612" navigableOwnedEnd="_end_00611 _end_00612">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00611" name="user" type="_cls_00002" visibility="public" association="_assoc_00610">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1464_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1465_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00612" name="message" type="_cls_00006" visibility="public" association="_assoc_00610">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1466_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1467_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00613" name="recipient / receivedMessages" memberEnd="_end_00614 _end_00615" navigableOwnedEnd="_end_00614 _end_00615">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00614" name="user" type="_cls_00002" visibility="public" association="_assoc_00613">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1468_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1469_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00615" name="message" type="_cls_00006" visibility="public" association="_assoc_00613">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1470_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1471_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00616" name="attachments (CASCADE)" memberEnd="_end_00617 _end_00618" navigableOwnedEnd="_end_00617 _end_00618">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00617" name="message" type="_cls_00006" visibility="public" association="_assoc_00616" aggregation="composite">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1472_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1473_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00618" name="messageAttachment" type="_cls_00007" visibility="public" association="_assoc_00616">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1474_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1475_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00619" name="author / announcements" memberEnd="_end_00620 _end_00621" navigableOwnedEnd="_end_00620 _end_00621">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00620" name="user" type="_cls_00002" visibility="public" association="_assoc_00619">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1476_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1477_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00621" name="announcement" type="_cls_00008" visibility="public" association="_assoc_00619">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1478_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1479_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00622" name="attachments (CASCADE)" memberEnd="_end_00623 _end_00624" navigableOwnedEnd="_end_00623 _end_00624">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00623" name="announcement" type="_cls_00008" visibility="public" association="_assoc_00622" aggregation="composite">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1480_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1481_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00624" name="announcementAttachment" type="_cls_00009" visibility="public" association="_assoc_00622">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1482_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1483_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Dependency" xmi:id="_dep_00625" client="_cls_00032" supplier="_cls_00031" name="retrieves document context" />
+    <uml:packagedElement xmi:type="uml:Dependency" xmi:id="_dep_00626" client="_cls_00032" supplier="_cls_00046" />
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00627" name="questions" memberEnd="_end_00628 _end_00629" navigableOwnedEnd="_end_00628 _end_00629">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00628" name="questionGenerationResponse" type="_cls_00046" visibility="public" association="_assoc_00627" aggregation="composite">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1484_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1485_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00629" name="question" type="_cls_00044" visibility="public" association="_assoc_00627">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1486_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1487_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00630" name="options" memberEnd="_end_00631 _end_00632" navigableOwnedEnd="_end_00631 _end_00632">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00631" name="question" type="_cls_00044" visibility="public" association="_assoc_00630" aggregation="composite">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1488_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1489_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00632" name="questionOption" type="_cls_00043" visibility="public" association="_assoc_00630">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1490_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1491_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Dependency" xmi:id="_dep_00633" client="_cls_00033" supplier="_cls_00048" />
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00634" name="results" memberEnd="_end_00635 _end_00636" navigableOwnedEnd="_end_00635 _end_00636">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00635" name="rAGSearchResponse" type="_cls_00042" visibility="public" association="_assoc_00634" aggregation="composite">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1492_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1493_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00636" name="rAGSearchResult" type="_cls_00041" visibility="public" association="_assoc_00634">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1494_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1495_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Dependency" xmi:id="_dep_00637" client="_cls_00036" supplier="_cls_00037" />
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00638" name="questions" memberEnd="_end_00639 _end_00640" navigableOwnedEnd="_end_00639 _end_00640">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00639" name="examGradingRequest" type="_cls_00050" visibility="public" association="_assoc_00638" aggregation="composite">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1496_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1497_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00640" name="examGradingQuestion" type="_cls_00049" visibility="public" association="_assoc_00638">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1498_l" value="1" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1499_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+    <uml:packagedElement xmi:type="uml:Association" xmi:id="_assoc_00641" name="grades" memberEnd="_end_00642 _end_00643" navigableOwnedEnd="_end_00642 _end_00643">
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00642" name="examGradingResponse" type="_cls_00052" visibility="public" association="_assoc_00641" aggregation="composite">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1500_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1501_u" value="1" />
+      </uml:ownedEnd>
+      <uml:ownedEnd xmi:type="uml:Property" xmi:id="_end_00643" name="examGradeSuggestion" type="_cls_00051" visibility="public" association="_assoc_00641">
+        <uml:lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mult_1502_l" value="0" />
+        <uml:upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mult_1503_u" value="*" />
+      </uml:ownedEnd>
+    </uml:packagedElement>
+  </uml:Model>
+</xmi:XMI>

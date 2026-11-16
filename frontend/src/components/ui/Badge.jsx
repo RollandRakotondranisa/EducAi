@@ -1,9 +1,11 @@
 import React from "react";
 
-export function Badge({
-  children,
-  className = "",
-}) {
+/**
+ * Composant Badge — étiquette visuelle arrondie.
+ * @param {React.ReactNode} children - Contenu du badge.
+ * @param {string} [className=""] - Classes Tailwind additionnelles.
+ */
+export function Badge({ children, className = "" }) {
   return (
     <span
       className={`

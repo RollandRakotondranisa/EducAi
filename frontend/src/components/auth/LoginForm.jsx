@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "react-router-dom";
 
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -33,41 +33,40 @@ export default function LoginForm() {
     clearError();
 
     try {
-      await login({
+      const result = await login({
         email,
         password,
         deviceInfo:
           "EduAI Web Browser",
       });
 
-      // Redirection selon le rôle
-      const user =
-        JSON.parse(
-          localStorage.getItem(
-            "educai_user"
-          )
-        );
+      const user = result?.user ?? result?.data?.user ?? null;
+      const accessToken = result?.accessToken ?? result?.data?.accessToken ?? null;
+      const refreshToken = result?.refreshToken ?? result?.data?.refreshToken ?? null;
+      const role = String(user?.role ?? "").toUpperCase();
 
-      if (user?.role === "TEACHER") {
-        navigate({
-          to: "/enseignant",
-        });
-      } else if (
-        user?.role === "STUDENT"
-      ) {
-        navigate({
-          to: "/etudiant",
-        });
-      } else if (
-        user?.role === "ADMIN"
-      ) {
-        navigate({
-          to: "/admin",
-        });
+      if (user) {
+        localStorage.setItem("educai_user", JSON.stringify(user));
+      }
+      if (accessToken) {
+        localStorage.setItem("educai_access_token", accessToken);
+      }
+      if (refreshToken) {
+        localStorage.setItem("educai_refresh_token", refreshToken);
+      }
+      localStorage.setItem(
+        "educai_session",
+        JSON.stringify({ user, accessToken, refreshToken, updatedAt: Date.now() })
+      );
+
+      if (role === "ADMIN") {
+        navigate({ to: "/admin" });
+      } else if (role === "TEACHER") {
+        navigate({ to: "/enseignant" });
+      } else if (role === "STUDENT") {
+        navigate({ to: "/etudiant" });
       } else {
-        navigate({
-          to: "/",
-        });
+        navigate({ to: "/" });
       }
     } catch (error) {
       console.error(

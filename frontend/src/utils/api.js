@@ -4,15 +4,18 @@ async function apiFetch(path, options = {}) {
   const url = `${API_URL}${path}`;
 
   const { body, headers = {}, signal, ...rest } = options;
+  const token = localStorage.getItem("educai_access_token");
+  const isFormData = body instanceof FormData;
 
   const res = await fetch(url, {
     method: options.method || "GET",
     headers: {
-      "Content-Type": "application/json",
+      ...(isFormData ? {} : { "Content-Type": "application/json" }),
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...headers,
     },
-    credentials: options.credentials ?? "same-origin",
-    body: body ? JSON.stringify(body) : undefined,
+    credentials: options.credentials ?? "include",
+    body: body ? (isFormData ? body : JSON.stringify(body)) : undefined,
     signal,
     ...rest,
   });

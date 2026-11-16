@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:xmi="http://www.omg.org/XMI" xmi:version="2.1">
+  <uml:Model xmi:id="EduAI_Design_Model" name="EducAI Global Design Class Model">
+    <packagedElement xmi:type="uml:Package" xmi:id="P_Presentation" name="Presentation Layer">
+      <packagedElement xmi:type="uml:Class" xmi:id="C_WebApp" name="React application">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_WebApp_1" name="start"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_WebApp_2" name="renderRoutes"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AuthPages" name="Authentication pages">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AuthPages_1" name="login"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AuthPages_2" name="register"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AdminDashboard" name="Administration dashboard">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AdminDashboard_1" name="loadOverview"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AdminDashboard_2" name="manageUsers"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_TeacherDashboard" name="Teacher dashboard">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_TeacherDashboard_1" name="loadCourses"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_TeacherDashboard_2" name="manageExams"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_StudentDashboard" name="Student dashboard">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_StudentDashboard_1" name="loadCourses"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_StudentDashboard_2" name="viewResults"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_MessagesPage" name="Messaging interface">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_MessagesPage_1" name="loadInbox"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_MessagesPage_2" name="sendMessage"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_ApiClient" name="Frontend API client">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ApiClient_1" name="get"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ApiClient_2" name="post"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ApiClient_3" name="put"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ApiClient_4" name="delete"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="P_API" name="Backend API and business services">
+      <packagedElement xmi:type="uml:Class" xmi:id="C_ExpressApp" name="Express API application">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ExpressApp_1" name="registerRoutes"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ExpressApp_2" name="handleErrors"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AuthController" name="Authentication controller">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AuthController_1" name="register"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AuthController_2" name="login"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AuthController_3" name="refresh"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AuthController_4" name="logout"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AuthService" name="Authentication service">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AuthService_1" name="createUser"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AuthService_2" name="authenticate"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AuthService_3" name="createSession"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AcademicController" name="Academic controller">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AcademicController_1" name="listStructure"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AcademicController_2" name="manageClasses"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AcademicService" name="Academic service">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AcademicService_1" name="getStructure"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AcademicService_2" name="manageAcademicData"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_CourseController" name="Course controller">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_CourseController_1" name="createCourse"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_CourseController_2" name="getCourses"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_CourseController_3" name="updateCourse"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_CourseService" name="Course service">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_CourseService_1" name="createCourse"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_CourseService_2" name="getCourse"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_CourseService_3" name="enrollStudent"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_DocumentController" name="Document controller">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_DocumentController_1" name="upload"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_DocumentController_2" name="preview"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_DocumentController_3" name="download"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_DocumentController_4" name="remove"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_DocumentService" name="Document service">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_DocumentService_1" name="storeDocument"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_DocumentService_2" name="recordHistory"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_DocumentService_3" name="indexDocument"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_ExamController" name="Exam controller">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ExamController_1" name="createExam"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ExamController_2" name="publishExam"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ExamController_3" name="getResults"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_ExamService" name="Exam service">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ExamService_1" name="createExam"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ExamService_2" name="publishExam"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ExamService_3" name="calculateResults"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_ExamAttemptService" name="Exam attempt service">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ExamAttemptService_1" name="startAttempt"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ExamAttemptService_2" name="saveAnswer"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ExamAttemptService_3" name="submitAttempt"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_ExamGradingAIService" name="AI grading client">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ExamGradingAIService_1" name="suggestGrades"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AIController" name="AI controller">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AIController_1" name="chat"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AIController_2" name="documentChat"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AIController_3" name="courseChat"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_StudentAIService" name="Student AI service">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_StudentAIService_1" name="askAssistant"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_StudentAIService_2" name="askAboutCourse"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AIServiceClient" name="AI service HTTP client">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AIServiceClient_1" name="analyzeDocument"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AIServiceClient_2" name="askLLM"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AIServiceClient_3" name="requestGrading"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_MessageController" name="Message controller">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_MessageController_1" name="getInbox"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_MessageController_2" name="sendMessage"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_MessageController_3" name="markAsRead"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_MessageService" name="Message service">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_MessageService_1" name="send"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_MessageService_2" name="getInbox"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_MessageService_3" name="downloadAttachment"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AnnouncementController" name="Announcement controller">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AnnouncementController_1" name="list"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AnnouncementController_2" name="create"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AnnouncementController_3" name="delete"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AnnouncementService" name="Announcement service">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AnnouncementService_1" name="publish"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AnnouncementService_2" name="listForUser"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AuthMiddleware" name="Authentication middleware">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_AuthMiddleware_1" name="authenticate"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_TenantContext" name="Organization access context">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_TenantContext_1" name="applyTenantScope"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_Database" name="MySQL database via Sequelize">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_Database_1" name="connect"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_Database_2" name="runMigrations"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="P_DOMAIN" name="Domain and persistence model">
+      <packagedElement xmi:type="uml:Class" xmi:id="C_User" name="User">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_2" name="firstName"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_3" name="lastName"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_4" name="email"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_5" name="role"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_6" name="isActive"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_User_7" name="isSuperAdmin"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_01_2" name="organization" type="C_Organization" association="AS_01" lower="0" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_04_1" name="teachingCourses" type="C_Course" association="AS_04" lower="0" upper="*"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_06_1" name="enrollments" type="C_CourseStudent" association="AS_06" lower="0" upper="*"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_08_1" name="uploadedDocuments" type="C_Document" association="AS_08" lower="0" upper="*"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_12_1" name="attempts" type="C_ExamAttempt" association="AS_12" lower="0" upper="*"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_16_1" name="results" type="C_ExamResult" association="AS_16" lower="0" upper="*"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_17_1" name="sentMessages" type="C_Message" association="AS_17" lower="0" upper="*"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_18_1" name="receivedMessages" type="C_Message" association="AS_18" lower="0" upper="*"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_21_1" name="sessions" type="C_Session" association="AS_21" lower="0" upper="*"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_Organization" name="Organization">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Organization_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Organization_2" name="name"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Organization_3" name="normalizedName"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Organization_4" name="isLegacy"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_01_1" name="users" type="C_User" association="AS_01" lower="0" upper="*"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_02_1" name="courses" type="C_Course" association="AS_02" lower="0" upper="*"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_03_1" name="announcements" type="C_Announcement" association="AS_03" lower="0" upper="*"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_UserRequest" name="User request">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_UserRequest_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_UserRequest_2" name="requestedRole"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_UserRequest_3" name="status"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_UserRequest_4" name="approvalReason"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_Session" name="Session">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Session_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Session_2" name="userId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Session_3" name="expiresAt"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Session_4" name="revokedAt"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_21_2" name="user" type="C_User" association="AS_21" lower="1" upper="1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AcademicYear" name="Academic year">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicYear_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicYear_2" name="name"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicYear_3" name="startsAt"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicYear_4" name="endsAt"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicYear_5" name="isActive"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_22_1" name="classes" type="C_AcademicClass" association="AS_22" lower="0" upper="*"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AcademicProgram" name="Academic program">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicProgram_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicProgram_2" name="name"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicProgram_3" name="isActive"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_23_1" name="classes" type="C_AcademicClass" association="AS_23" lower="0" upper="*"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AcademicLevel" name="Academic level">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicLevel_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicLevel_2" name="name"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicLevel_3" name="position"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicLevel_4" name="isActive"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_24_1" name="classes" type="C_AcademicClass" association="AS_24" lower="0" upper="*"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AcademicClass" name="Academic class">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicClass_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicClass_2" name="name"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicClass_3" name="academicYearId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicClass_4" name="programId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicClass_5" name="levelId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_22_2" name="academicYear" type="C_AcademicYear" association="AS_22" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_23_2" name="program" type="C_AcademicProgram" association="AS_23" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_24_2" name="level" type="C_AcademicLevel" association="AS_24" lower="1" upper="1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AcademicClassTeacher" name="Class teacher assignment">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicClassTeacher_1" name="academicClassId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AcademicClassTeacher_2" name="teacherId"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_Course" name="Course">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Course_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Course_2" name="name"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Course_3" name="code"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Course_4" name="description"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Course_5" name="teacherId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_02_2" name="organization" type="C_Organization" association="AS_02" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_04_2" name="teacher" type="C_User" association="AS_04" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_05_1" name="enrollments" type="C_CourseStudent" association="AS_05" lower="0" upper="*"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_07_1" name="documents" type="C_Document" association="AS_07" lower="0" upper="*"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_09_1" name="exams" type="C_Exam" association="AS_09" lower="0" upper="*"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_CourseStudent" name="Course enrollment">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_CourseStudent_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_CourseStudent_2" name="courseId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_CourseStudent_3" name="studentId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_05_2" name="course" type="C_Course" association="AS_05" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_06_2" name="student" type="C_User" association="AS_06" lower="1" upper="1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_Document" name="Pedagogical document">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Document_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Document_2" name="courseId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Document_3" name="uploadedBy"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Document_4" name="originalName"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Document_5" name="mimeType"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Document_6" name="fileSize"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Document_7" name="status"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_07_2" name="course" type="C_Course" association="AS_07" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_08_2" name="uploader" type="C_User" association="AS_08" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_25_1" name="history" type="C_DocumentHistory" association="AS_25" lower="0" upper="*"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_DocumentHistory" name="Document history">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_DocumentHistory_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_DocumentHistory_2" name="documentId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_DocumentHistory_3" name="userId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_DocumentHistory_4" name="action"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_DocumentHistory_5" name="details"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_25_2" name="document" type="C_Document" association="AS_25" lower="1" upper="1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_Exam" name="Exam">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Exam_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Exam_2" name="courseId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Exam_3" name="teacherId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Exam_4" name="title"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Exam_5" name="duration"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Exam_6" name="status"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_09_2" name="course" type="C_Course" association="AS_09" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_10_1" name="questions" type="C_ExamQuestion" association="AS_10" lower="0" upper="*"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_11_1" name="attempts" type="C_ExamAttempt" association="AS_11" lower="0" upper="*"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_15_1" name="results" type="C_ExamResult" association="AS_15" lower="0" upper="*"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_ExamQuestion" name="Exam question">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamQuestion_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamQuestion_2" name="examId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamQuestion_3" name="question"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamQuestion_4" name="type"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamQuestion_5" name="points"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamQuestion_6" name="position"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_10_2" name="exam" type="C_Exam" association="AS_10" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_14_1" name="answers" type="C_ExamAnswer" association="AS_14" lower="0" upper="*"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_ExamAttempt" name="Exam attempt">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAttempt_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAttempt_2" name="examId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAttempt_3" name="studentId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAttempt_4" name="status"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAttempt_5" name="score"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAttempt_6" name="expiresAt"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_11_2" name="exam" type="C_Exam" association="AS_11" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_12_2" name="student" type="C_User" association="AS_12" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_13_1" name="answers" type="C_ExamAnswer" association="AS_13" lower="0" upper="*"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_ExamAnswer" name="Exam answer">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAnswer_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAnswer_2" name="attemptId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAnswer_3" name="questionId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAnswer_4" name="answerText"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAnswer_5" name="pointsObtained"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamAnswer_6" name="isCorrected"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_13_2" name="attempt" type="C_ExamAttempt" association="AS_13" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_14_2" name="question" type="C_ExamQuestion" association="AS_14" lower="1" upper="1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_ExamResult" name="Exam result">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamResult_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamResult_2" name="examId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamResult_3" name="studentId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamResult_4" name="score"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamResult_5" name="totalPoints"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_ExamResult_6" name="percentage"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_15_2" name="exam" type="C_Exam" association="AS_15" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_16_2" name="student" type="C_User" association="AS_16" lower="1" upper="1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_Message" name="Message">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Message_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Message_2" name="senderId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Message_3" name="recipientId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Message_4" name="title"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Message_5" name="content"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Message_6" name="isRead"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_17_2" name="sender" type="C_User" association="AS_17" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_18_2" name="recipient" type="C_User" association="AS_18" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_19_1" name="attachments" type="C_MessageAttachment" association="AS_19" lower="0" upper="*"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_MessageAttachment" name="Message attachment">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_MessageAttachment_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_MessageAttachment_2" name="messageId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_MessageAttachment_3" name="originalName"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_MessageAttachment_4" name="mimeType"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_MessageAttachment_5" name="fileSize"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_19_2" name="message" type="C_Message" association="AS_19" lower="1" upper="1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_Announcement" name="Announcement">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Announcement_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Announcement_2" name="createdBy"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Announcement_3" name="title"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Announcement_4" name="content"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Announcement_5" name="targetRole"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Announcement_6" name="publishedAt"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_03_2" name="organization" type="C_Organization" association="AS_03" lower="1" upper="1"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_20_1" name="attachments" type="C_AnnouncementAttachment" association="AS_20" lower="0" upper="*"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_AnnouncementAttachment" name="Announcement attachment">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AnnouncementAttachment_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AnnouncementAttachment_2" name="announcementId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AnnouncementAttachment_3" name="originalName"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_AnnouncementAttachment_4" name="mimeType"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="END_20_2" name="announcement" type="C_Announcement" association="AS_20" lower="1" upper="1"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_Audit" name="Audit record">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Audit_1" name="id"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Audit_2" name="userId"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Audit_3" name="action"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Audit_4" name="description"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="ATTR_Audit_5" name="status"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="P_AI" name="Python AI service">
+      <packagedElement xmi:type="uml:Class" xmi:id="C_FastAPIApp" name="FastAPI application">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_FastAPIApp_1" name="registerAIRoutes"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_LLMService" name="Gemini language model service">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_LLMService_1" name="chat"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_LLMService_2" name="answerFromContext"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_RAGService" name="FAISS document retrieval service">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_RAGService_1" name="createIndex"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_RAGService_2" name="search"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_RAGService_3" name="getContext"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_DocumentAnalysisService" name="Document text extraction service">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_DocumentAnalysisService_1" name="analyzePDF"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_DocumentAnalysisService_2" name="analyzeDOCX"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_DocumentAnalysisService_3" name="analyzePPTX"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="C_ExamGradingService" name="Exam grading suggestions service">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="OP_ExamGradingService_1" name="suggestGrades"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_01" name="Organization_User" memberEnd="END_01_1 END_01_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_02" name="Organization_Course" memberEnd="END_02_1 END_02_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_03" name="Organization_Announcement" memberEnd="END_03_1 END_03_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_04" name="User_Course" memberEnd="END_04_1 END_04_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_05" name="Course_Enrollment" memberEnd="END_05_1 END_05_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_06" name="User_Enrollment" memberEnd="END_06_1 END_06_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_07" name="Course_Document" memberEnd="END_07_1 END_07_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_08" name="User_Document" memberEnd="END_08_1 END_08_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_09" name="Course_Exam" memberEnd="END_09_1 END_09_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_10" name="Exam_Question" memberEnd="END_10_1 END_10_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_11" name="Exam_Attempt" memberEnd="END_11_1 END_11_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_12" name="User_Attempt" memberEnd="END_12_1 END_12_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_13" name="Attempt_Answer" memberEnd="END_13_1 END_13_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_14" name="Question_Answer" memberEnd="END_14_1 END_14_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_15" name="Exam_Result" memberEnd="END_15_1 END_15_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_16" name="User_Result" memberEnd="END_16_1 END_16_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_17" name="User_SenderMessage" memberEnd="END_17_1 END_17_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_18" name="User_RecipientMessage" memberEnd="END_18_1 END_18_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_19" name="Message_Attachment" memberEnd="END_19_1 END_19_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_20" name="Announcement_Attachment" memberEnd="END_20_1 END_20_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_21" name="User_Session" memberEnd="END_21_1 END_21_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_22" name="Year_Class" memberEnd="END_22_1 END_22_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_23" name="Program_Class" memberEnd="END_23_1 END_23_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_24" name="Level_Class" memberEnd="END_24_1 END_24_2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="AS_25" name="Document_History" memberEnd="END_25_1 END_25_2"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_01" name="WebApp_uses_ApiClient" client="C_WebApp" supplier="C_ApiClient"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_02" name="AuthPages_uses_ApiClient" client="C_AuthPages" supplier="C_ApiClient"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_03" name="AdminDashboard_uses_ApiClient" client="C_AdminDashboard" supplier="C_ApiClient"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_04" name="TeacherDashboard_uses_ApiClient" client="C_TeacherDashboard" supplier="C_ApiClient"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_05" name="StudentDashboard_uses_ApiClient" client="C_StudentDashboard" supplier="C_ApiClient"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_06" name="MessagesPage_uses_ApiClient" client="C_MessagesPage" supplier="C_ApiClient"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_07" name="ApiClient_uses_ExpressApp" client="C_ApiClient" supplier="C_ExpressApp"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_08" name="ExpressApp_uses_AuthMiddleware" client="C_ExpressApp" supplier="C_AuthMiddleware"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_09" name="ExpressApp_uses_TenantContext" client="C_ExpressApp" supplier="C_TenantContext"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_10" name="ExpressApp_uses_AuthController" client="C_ExpressApp" supplier="C_AuthController"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_11" name="ExpressApp_uses_AcademicController" client="C_ExpressApp" supplier="C_AcademicController"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_12" name="ExpressApp_uses_CourseController" client="C_ExpressApp" supplier="C_CourseController"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_13" name="ExpressApp_uses_DocumentController" client="C_ExpressApp" supplier="C_DocumentController"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_14" name="ExpressApp_uses_ExamController" client="C_ExpressApp" supplier="C_ExamController"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_15" name="ExpressApp_uses_AIController" client="C_ExpressApp" supplier="C_AIController"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_16" name="ExpressApp_uses_MessageController" client="C_ExpressApp" supplier="C_MessageController"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_17" name="ExpressApp_uses_AnnouncementController" client="C_ExpressApp" supplier="C_AnnouncementController"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_18" name="AuthController_uses_AuthService" client="C_AuthController" supplier="C_AuthService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_19" name="AcademicController_uses_AcademicService" client="C_AcademicController" supplier="C_AcademicService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_20" name="CourseController_uses_CourseService" client="C_CourseController" supplier="C_CourseService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_21" name="DocumentController_uses_DocumentService" client="C_DocumentController" supplier="C_DocumentService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_22" name="ExamController_uses_ExamService" client="C_ExamController" supplier="C_ExamService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_23" name="ExamController_uses_ExamAttemptService" client="C_ExamController" supplier="C_ExamAttemptService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_24" name="ExamController_uses_ExamGradingAIService" client="C_ExamController" supplier="C_ExamGradingAIService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_25" name="AIController_uses_StudentAIService" client="C_AIController" supplier="C_StudentAIService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_26" name="AIController_uses_AIServiceClient" client="C_AIController" supplier="C_AIServiceClient"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_27" name="MessageController_uses_MessageService" client="C_MessageController" supplier="C_MessageService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_28" name="AnnouncementController_uses_AnnouncementService" client="C_AnnouncementController" supplier="C_AnnouncementService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_29" name="AuthService_uses_Database" client="C_AuthService" supplier="C_Database"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_30" name="AcademicService_uses_Database" client="C_AcademicService" supplier="C_Database"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_31" name="CourseService_uses_Database" client="C_CourseService" supplier="C_Database"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_32" name="DocumentService_uses_Database" client="C_DocumentService" supplier="C_Database"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_33" name="ExamService_uses_Database" client="C_ExamService" supplier="C_Database"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_34" name="ExamAttemptService_uses_Database" client="C_ExamAttemptService" supplier="C_Database"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_35" name="MessageService_uses_Database" client="C_MessageService" supplier="C_Database"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_36" name="AnnouncementService_uses_Database" client="C_AnnouncementService" supplier="C_Database"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_37" name="TenantContext_uses_Database" client="C_TenantContext" supplier="C_Database"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_38" name="DocumentService_uses_AIServiceClient" client="C_DocumentService" supplier="C_AIServiceClient"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_39" name="StudentAIService_uses_AIServiceClient" client="C_StudentAIService" supplier="C_AIServiceClient"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_40" name="ExamGradingAIService_uses_AIServiceClient" client="C_ExamGradingAIService" supplier="C_AIServiceClient"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_41" name="AIServiceClient_uses_FastAPIApp" client="C_AIServiceClient" supplier="C_FastAPIApp"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_42" name="FastAPIApp_uses_LLMService" client="C_FastAPIApp" supplier="C_LLMService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_43" name="FastAPIApp_uses_RAGService" client="C_FastAPIApp" supplier="C_RAGService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_44" name="FastAPIApp_uses_DocumentAnalysisService" client="C_FastAPIApp" supplier="C_DocumentAnalysisService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_45" name="FastAPIApp_uses_ExamGradingService" client="C_FastAPIApp" supplier="C_ExamGradingService"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="DEP_46" name="RAGService_uses_LLMService" client="C_RAGService" supplier="C_LLMService"/>
+  </uml:Model>
+</xmi:XMI>

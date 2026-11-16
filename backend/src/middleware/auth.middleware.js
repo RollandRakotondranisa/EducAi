@@ -1,6 +1,10 @@
 const jwt = require("jsonwebtoken");
+const Session = require("../models/Session");
+const User = require("../models/User");
+const Organization = require("../models/Organization");
+const { tenantContext } = require("../utils/tenant-context");
 
-const authenticate = (req, res, next) => {
+const authenticate = async (req, res, next) => {
   try {
     // Récupérer le header Authorization
     const authHeader = req.headers.authorization;
@@ -31,10 +35,66 @@ const authenticate = (req, res, next) => {
       process.env.JWT_ACCESS_SECRET
     );
 
-    // Ajouter les informations de l'utilisateur à la requête
-    req.user = decoded;
+    if (!decoded.sessionId) {
+      return res.status(401).json({
+        success: false,
+        message: "Session invalide, veuillez vous reconnecter",
+      });
+    }
 
-    next();
+    const session = await Session.findOne({
+      where: { id: decoded.sessionId, userId: decoded.id, revokedAt: null },
+    });
+    if (!session || new Date(session.expiresAt) <= new Date()) {
+      return res.status(401).json({
+        success: false,
+        message: "Session expirée ou révoquée",
+      });
+    }
+
+    const user = await User.findByPk(decoded.id, {
+      attributes: ["id", "isActive", "role", "organizationId", "isSuperAdmin"],
+    });
+    if (!user || user.isActive === false) {
+      return res.status(403).json({
+        success: false,
+        message: "Ce compte est désactivé. Contactez un administrateur pour rétablir l'accès.",
+      });
+    }
+    if (String(decoded.role).toUpperCase() !== user.role) {
+      return res.status(401).json({
+        success: false,
+        message: "Les autorisations de ce compte ont changé. Veuillez vous reconnecter.",
+      });
+    }
+    if (!user.isSuperAdmin) {
+      const organization = user.organizationId
+        ? await Organization.findByPk(user.organizationId, { attributes: ["id", "isLegacy"] })
+        : null;
+      if (!organization) {
+        return res.status(403).json({
+          success: false,
+          message: "Ce compte doit être rattaché à un établissement par le super-administrateur avant de pouvoir accéder à la plateforme.",
+        });
+      }
+      if (organization.isLegacy) {
+        return res.status(403).json({
+          success: false,
+          message: "Ce compte historique doit être rattaché à un établissement par le super-administrateur avant de pouvoir accéder à la plateforme.",
+        });
+      }
+    }
+
+    req.user = {
+      ...decoded,
+      organizationId: user.organizationId,
+      isSuperAdmin: Boolean(user.isSuperAdmin),
+    };
+
+    tenantContext.run({
+      organizationId: user.organizationId,
+      isSuperAdmin: Boolean(user.isSuperAdmin),
+    }, next);
   } catch (error) {
     if (error.name === "TokenExpiredError") {
       return res.status(401).json({

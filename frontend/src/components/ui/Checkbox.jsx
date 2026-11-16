@@ -1,11 +1,9 @@
 import React from "react";
 
-export function Checkbox({
-  id,
-  checked,
-  onChange,
-  ...props
-}) {
+/**
+ * Case à cocher native stylisée avec accent couleur primaire.
+ */
+export function Checkbox({ id, checked, onChange, ...props }) {
   return (
     <input
       id={id}

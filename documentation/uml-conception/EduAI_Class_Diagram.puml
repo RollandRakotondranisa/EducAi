@@ -1,0 +1,559 @@
+@startuml EduAI_Class_Diagram
+title EduAI - diagramme de classes de conception (sources analysees)
+left to right direction
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+hide empty members
+
+package "1. Utilisateurs, authentification et communication" {
+  class User {
+    +id: Integer
+    +firstName: String(100)
+    +lastName: String(100)
+    +email: String(150) {unique}
+    +password: String(255)
+    +role: Role
+    +isActive: Boolean
+    +isSuperAdmin: Boolean
+    +superAdminKey: String(32) [0..1]
+    +organizationId: Integer [0..1]
+    +refreshToken: Text [0..1]
+    +resetPasswordToken: String(255) [0..1]
+    +resetPasswordExpires: Date [0..1]
+    +avatar: Text [0..1]
+    +specialty: String(150) [0..1]
+    +classesHeld: String(255) [0..1]
+    +university: String(180) [0..1]
+    +academicTitle: String(120) [0..1]
+    +bio: Text [0..1]
+    +matricule: String(80) [0..1]
+    +level: String(80) [0..1]
+    +program: String(150) [0..1]
+    +phone: String(30) [0..1]
+    +studentProfileCompleted: Boolean
+    +academicClassId: Integer [0..1]
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class Session {
+    +id: UUID
+    +userId: Integer
+    +refreshTokenHash: String(255)
+    +deviceInfo: String(255) [0..1]
+    +ipAddress: String(45) [0..1]
+    +expiresAt: Date
+    +revokedAt: Date [0..1]
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class UserRequest {
+    +id: Integer
+    +userId: Integer
+    +firstName: String(100)
+    +lastName: String(100)
+    +email: String(150)
+    +requestedRole: RequestedRole
+    +status: RequestStatus
+    +approvedBy: Integer [0..1]
+    +approvalReason: Text [0..1]
+    +createdAt: Date
+    +approvedAt: Date [0..1]
+  }
+  class Audit {
+    +id: Integer
+    +userId: Integer
+    +action: String(100)
+    +description: Text [0..1]
+    +targetUserId: Integer [0..1]
+    +ipAddress: String(45) [0..1]
+    +userAgent: Text [0..1]
+    +status: AuditStatus
+    +metadata: JSON [0..1]
+    +createdAt: Date
+  }
+  class Message {
+    +id: Integer
+    +senderId: Integer
+    +recipientId: Integer
+    +title: String(200)
+    +content: Text
+    +isRead: Boolean
+    +readAt: Date [0..1]
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class MessageAttachment {
+    +id: Integer
+    +messageId: Integer
+    +originalName: String(255)
+    +storedName: String(255)
+    +mimeType: String(120)
+    +filePath: String(500)
+    +fileSize: BigInt
+    +kind: AttachmentKind
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class Announcement {
+    +id: Integer
+    +title: String(200)
+    +content: Text
+    +targetRole: AnnouncementTargetRole
+    +createdBy: Integer
+    +publishedAt: Date
+    +expiresAt: Date [0..1]
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class AnnouncementAttachment {
+    +id: Integer
+    +announcementId: Integer
+    +originalName: String(255)
+    +storedName: String(255)
+    +mimeType: String(120)
+    +filePath: String(500)
+    +fileSize: BigInt
+    +kind: AttachmentKind
+    +createdAt: Date
+    +updatedAt: Date
+  }
+}
+
+package "2. Etablissements et structure academique" {
+  class Organization {
+    +id: Integer
+    +name: String(180)
+    +normalizedName: String(180) {unique}
+    +isLegacy: Boolean
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class AcademicYear {
+    +id: Integer
+    +name: String(20)
+    +startsAt: DateOnly
+    +endsAt: DateOnly
+    +isActive: Boolean
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class AcademicProgram {
+    +id: Integer
+    +name: String(150)
+    +isActive: Boolean
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class AcademicLevel {
+    +id: Integer
+    +name: String(80)
+    +position: Integer
+    +isActive: Boolean
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class AcademicClass {
+    +id: Integer
+    +name: String(100)
+    +academicYearId: Integer
+    +programId: Integer
+    +levelId: Integer
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class AcademicClassTeacher {
+    +academicClassId: Integer <<PK>>
+    +teacherId: Integer <<PK>>
+    +createdAt: Date
+    +updatedAt: Date
+  }
+}
+
+package "3. Cours et inscriptions" {
+  class Course {
+    +id: Integer
+    +name: String(150)
+    +code: String(50)
+    +description: Text [0..1]
+    +targetProgram: String(150) [0..1]
+    +targetLevel: String(80) [0..1]
+    +targetAcademicClassId: Integer [0..1]
+    +teacherId: Integer
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class CourseStudent {
+    +id: Integer
+    +courseId: Integer
+    +studentId: Integer
+    +createdAt: Date
+    +updatedAt: Date
+  }
+}
+
+package "4. Documents pedagogiques" {
+  class Document {
+    +id: Integer
+    +courseId: Integer
+    +uploadedBy: Integer
+    +originalName: String(255)
+    +fileName: String(255)
+    +filePath: String(500)
+    +mimeType: String(100)
+    +extension: String(20)
+    +fileSize: BigInt
+    +status: DocumentStatus
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class DocumentHistory {
+    +id: Integer
+    +documentId: Integer
+    +userId: Integer
+    +action: DocumentAction
+    +details: Text [0..1]
+    +createdAt: Date
+    +updatedAt: Date
+  }
+}
+
+package "5. Examens et evaluations" {
+  class Exam {
+    +id: Integer
+    +courseId: Integer
+    +teacherId: Integer
+    +title: String(200)
+    +description: Text [0..1]
+    +targetProgram: String(150) [0..1]
+    +targetLevel: String(80) [0..1]
+    +targetAcademicClassId: Integer [0..1]
+    +expectedQuestionCount: Integer [0..1]
+    +duration: Integer
+    +startDate: Date
+    +endDate: Date [0..1]
+    +status: ExamStatus
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class ExamQuestion {
+    +id: Integer
+    +examId: Integer
+    +question: Text
+    +type: ExamQuestionType
+    +points: Decimal(5,2)
+    +position: Integer
+    +options: JSON [0..1]
+    +correctAnswer: Text [0..1]
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class ExamAttempt {
+    +id: Integer
+    +examId: Integer
+    +studentId: Integer
+    +startedAt: Date [0..1]
+    +submittedAt: Date [0..1]
+    +expiresAt: Date [0..1]
+    +status: AttemptStatus
+    +score: Decimal(5,2) [0..1]
+    +totalPoints: Decimal(5,2) [0..1]
+    +createdAt: Date
+    +updatedAt: Date
+  }
+  class ExamAnswer {
+    +id: Integer
+    +attemptId: Integer
+    +questionId: Integer
+    +selectedOption: String(255) [0..1]
+    +answerText: Text [0..1]
+    +pointsObtained: Decimal(10,2) [0..1]
+    +isCorrected: Boolean
+    +feedback: Text [0..1]
+    +createdAt: Date
+    +updatedAt: Date
+  }
+}
+
+package "6. Resultats" {
+  class ExamResult {
+    +id: Integer
+    +studentId: Integer
+    +examId: Integer
+    +attemptId: Integer [0..1] {unique}
+    +status: ResultStatus
+    +score: Decimal(10,2)
+    +totalPoints: Decimal(10,2)
+    +totalQuestions: Integer
+    +correctAnswers: Integer
+    +wrongAnswers: Integer
+    +unansweredQuestions: Integer
+    +percentage: Decimal(5,2)
+    +submittedAt: Date [0..1]
+    +createdAt: Date
+    +updatedAt: Date
+  }
+}
+
+package "7. Module d'intelligence artificielle" {
+  class RAGService {
+    -embeddings: GoogleGenerativeAIEmbeddings
+    -vectorStores: dict
+    -lock: RLock
+    -indexDir: Path
+    +split_text(text: str, document_id: int, course_id: int, teacher_id: int): List[LangChainDocument]
+    +create_index(text: str, document_id: int, course_id: int, teacher_id: int): dict
+    +search(query: str, course_id: int, document_id: Optional[int], teacher_id: int, k: int): List[LangChainDocument]
+    +get_context(query: str, course_id: int, document_id: Optional[int], teacher_id: int, k: int): str
+    +get_full_context(course_id: int, teacher_id: int, document_id: Optional[int]): str
+    -_load_indexes(): None
+  }
+  class QuestionService {
+    -llm: ChatGoogleGenerativeAI
+    +generate_questions(context: str, number_of_questions: int, question_type: str, difficulty: str): dict
+    +generate_from_document(query: str, teacher_id: int, course_id: int, document_id: int, number_of_questions: int, question_type: str, difficulty: str): dict
+  }
+  class CorrectionService {
+    -llm: ChatGoogleGenerativeAI
+    +correct_answer(question: str, expected_answer: str, student_answer: str, points: int): dict
+  }
+  class LLMRequest <<Pydantic>> {
+    +message: str
+    +role: Literal[TEACHER,STUDENT,ADMIN]
+    +context: dict[str,Any]
+  }
+  class DocumentAnalysisResponse <<Pydantic>> {
+    +filename: str
+    +file_type: str
+    +characters: int
+    +words: int
+    +text: str
+  }
+  class DocumentIndexRequest <<Pydantic>> {
+    +document_id: int
+    +course_id: int
+    +teacher_id: int
+    +text: str
+  }
+  class DocumentIndexResponse <<Pydantic>> {
+    +document_id: int
+    +course_id: int
+    +chunks: int
+    +status: str
+  }
+  class RAGSearchRequest <<Pydantic>> {
+    +query: str
+    +course_id: int
+    +document_id: int
+    +teacher_id: int
+    +k: int
+  }
+  class DocumentChatRequest <<Pydantic>> {
+    +message: str
+    +document_id: int [0..1]
+    +course_id: int
+    +teacher_id: int
+  }
+  class CourseChatRequest <<Pydantic>> {
+    +message: str
+    +course_id: int
+    +teacher_id: int
+  }
+  class RAGSearchResult <<Pydantic>> {
+    +content: str
+    +document_id: int
+    +course_id: int
+  }
+  class RAGSearchResponse <<Pydantic>> {
+    +results: List[RAGSearchResult]
+    +query: str
+    +course_id: int
+  }
+  class QuestionOption <<Pydantic>> {
+    +id: str
+    +text: str
+  }
+  class Question <<Pydantic>> {
+    +id: str
+    +type: Literal[mcq,open]
+    +question: str
+    +options: List[QuestionOption]
+    +correct_answer: str [0..1]
+    +explanation: str [0..1]
+    +difficulty: Literal[easy,medium,hard]
+    +points: int
+    +validate_mcq(): Question
+  }
+  class QuestionGenerationRequest <<Pydantic>> {
+    +query: str
+    +teacher_id: int
+    +document_id: int
+    +course_id: int
+    +number_of_questions: int
+    +question_type: Literal[mcq,open]
+    +difficulty: Literal[easy,medium,hard]
+  }
+  class QuestionGenerationResponse <<Pydantic>> {
+    +questions: List[Question]
+    +source: str [0..1]
+  }
+  class CorrectionRequest <<Pydantic>> {
+    +question: str
+    +expected_answer: str
+    +student_answer: str
+    +points: int
+  }
+  class CorrectionResponse <<Pydantic>> {
+    +score: float
+    +max_score: float
+    +is_correct: bool
+    +feedback: str
+    +explanation: str
+    +strengths: List[str]
+    +weaknesses: List[str]
+  }
+  class ExamGradingQuestion <<Pydantic>> {
+    +question_id: int
+    +question: str
+    +type: Literal[MCQ,OPEN]
+    +points: float
+    +options: List[str]
+    +expected_answer: str [0..1]
+    +student_answer: str [0..1]
+  }
+  class ExamGradingRequest <<Pydantic>> {
+    +questions: List[ExamGradingQuestion]
+  }
+  class ExamGradeSuggestion <<Pydantic>> {
+    +question_id: int
+    +points_obtained: float
+    +feedback: str
+    +rationale: str
+  }
+  class ExamGradingResponse <<Pydantic>> {
+    +grades: List[ExamGradeSuggestion]
+  }
+}
+
+package "8. Services et composants techniques" {
+  note "Les modules Express (routes, controllers, services JS), les fonctions Python libres (document, LLM, correction d'examen), les composants React et les API externes sont des modules/fonctions, pas des classes metier. Ils ne sont donc pas inventes comme classes UML. Les roles sont portes par User.role; isSuperAdmin specialise le comportement ADMIN." as TechnicalBoundary
+  note "GoogleGenerativeAIEmbeddings / ChatGoogleGenerativeAI, FAISS, LangChain, FastAPI, Sequelize, Express et React sont des dependances techniques. Le backend appelle le service IA par HTTP; les schemas Pydantic portent des contrats sans persistance." as TechStack
+}
+
+enum Role {
+  ADMIN
+  TEACHER
+  STUDENT
+}
+enum RequestedRole {
+  ADMIN
+  TEACHER
+  STUDENT
+}
+enum RequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+enum AuditStatus {
+  SUCCESS
+  FAILED
+}
+enum DocumentStatus {
+  UPLOADED
+  PROCESSING
+  PROCESSED
+  FAILED
+}
+enum DocumentAction {
+  UPLOAD
+  VIEW
+  DOWNLOAD
+  DELETE
+}
+enum ExamStatus {
+  DRAFT
+  PUBLISHED
+  CLOSED
+}
+enum ExamQuestionType {
+  MCQ
+  OPEN
+}
+enum AttemptStatus {
+  IN_PROGRESS
+  SUBMITTED
+  GRADED
+  ABSENT
+}
+enum ResultStatus {
+  PRESENT
+  ABSENT
+}
+enum AttachmentKind {
+  FILE
+  IMAGE
+}
+enum AnnouncementTargetRole {
+  STUDENT
+  TEACHER
+  ALL
+  ADMIN
+}
+
+Organization "0..1" <-- "0..*" User : organization / users
+User "1" <-- "0..*" Session : user / sessions
+AcademicYear "1" <-- "0..*" AcademicClass : academicYear / classes
+AcademicProgram "1" <-- "0..*" AcademicClass : program / classes
+AcademicLevel "1" <-- "0..*" AcademicClass : level / classes
+AcademicClass "0..1" <-- "0..*" User : academicClass / students
+AcademicClass "0..*" -- "0..*" User : teachers
+AcademicClass "1" -- "0..*" AcademicClassTeacher : teaching-class links
+User "1" -- "0..*" AcademicClassTeacher : teacher links
+User "1" <-- "0..*" Course : teacher / courses
+Course "1" -- "0..*" CourseStudent : enrollments
+User "1" -- "0..*" CourseStudent : student enrollments
+AcademicClass "0..1" <-- "0..*" Course : targetClass / courses
+Course "1" <-- "0..*" Document : course / documents
+User "1" <-- "0..*" Document : uploader / documents
+Document "1" *-- "0..*" DocumentHistory : history (CASCADE)
+User "1" <-- "0..*" DocumentHistory : actor / history
+Course "1" <-- "0..*" Exam : course / exams
+User "1" <-- "0..*" Exam : teacher / createdExams
+AcademicClass "0..1" <-- "0..*" Exam : targetClass / exams
+Exam "1" *-- "0..*" ExamQuestion : questions (CASCADE)
+Exam "1" <-- "0..*" ExamAttempt : exam / attempts
+User "1" <-- "0..*" ExamAttempt : student / attempts
+ExamAttempt "1" <-- "0..*" ExamAnswer : attempt / answers (CASCADE)
+ExamQuestion "1" <-- "0..*" ExamAnswer : question / answers (CASCADE)
+ExamAttempt "0..1" -- "0..1" ExamResult : result / attempt (unique nullable FK)
+Exam "1" <-- "0..*" ExamResult : exam / results
+User "1" <-- "0..*" ExamResult : student / results
+User "1" <-- "0..*" Message : sender / sentMessages
+User "1" <-- "0..*" Message : recipient / receivedMessages
+Message "1" *-- "0..*" MessageAttachment : attachments (CASCADE)
+User "1" <-- "0..*" Announcement : author / announcements
+Announcement "1" *-- "0..*" AnnouncementAttachment : attachments (CASCADE)
+
+QuestionService ..> RAGService : retrieves document context
+QuestionService ..> QuestionGenerationResponse
+QuestionGenerationResponse "1" *-- "0..*" Question : questions
+Question "1" *-- "0..*" QuestionOption : options
+CorrectionService ..> CorrectionResponse
+RAGSearchResponse "1" *-- "0..*" RAGSearchResult : results
+DocumentIndexRequest ..> DocumentIndexResponse
+ExamGradingRequest "1" *-- "1..*" ExamGradingQuestion : questions
+ExamGradingResponse "1" *-- "0..*" ExamGradeSuggestion : grades
+
+note right of User
+Les valeurs de role sont ADMIN, TEACHER et STUDENT.
+Le super-administrateur est un User ADMIN avec isSuperAdmin=true,
+pas une sous-classe.
+end note
+note bottom of RAGService
+Le code utilise FAISS et les embeddings Gemini.
+Le modele chat est configure par GEMINI_MODEL
+(defaut observe : gemini-3.6-flash).
+end note
+
+@enduml
